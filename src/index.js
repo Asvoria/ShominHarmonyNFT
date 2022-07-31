@@ -111,6 +111,7 @@ const generateReceipt = async () => {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
+  await runMetamask()
   console.log('DOM fully loaded and parsed')
   submitOrder.onclick = generateReceipt
 })
