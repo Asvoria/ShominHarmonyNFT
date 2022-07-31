@@ -8,7 +8,7 @@ const SHOMIN_ABI = [{
   'name': 'buyMembership',
   'outputs': [],
   'stateMutability': 'payable',
-  'type': 'function'
+  'type': 'function',
 }, {
   'inputs': [],
   'name': 'getLastID',
@@ -20,9 +20,11 @@ const SHOMIN_ABI = [{
   'name': 'ownerOf',
   'outputs': [{ 'internalType': 'address', 'name': '', 'type': 'address' }],
   'stateMutability': 'view',
-  'type': 'function' }]
+  'type': 'function',
+}]
 
 const submitOrder = document.getElementById('order')
+
 const Web3 = require('web3')
 const web3 = new Web3('https://api.s0.ps.hmny.io')
 const getAccountsResults = document.getElementById('getAccountsResult')
