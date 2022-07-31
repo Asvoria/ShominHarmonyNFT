@@ -1,0 +1,180 @@
+section {
+  margin: 20px 0 20px 0;
+}
+
+.circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  position: relative;
+  left: 100px;
+  border: 1px solid gray;
+  padding: 2px;
+}
+
+.info-text {
+  font-size: 1.1em;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+/* Logo & Header */
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#logo-container {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+#logo-text {
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+
+#mm-logo {
+  width: 100%;
+}
+
+/* Encrypt/Decrypt */
+
+#encryptMessageInput {
+  margin-bottom: 1rem;
+}
+
+#shopCart {
+  display: inline-block;
+  background-color: #13e900;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+  opacity: 1;
+  visibility: visible;
+  z-index: 1000;
+}
+#shopCart::after {
+  content: "\f07a";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+#shopCart:hover {
+  cursor: pointer;
+  background-color: rgb(0, 162, 255);
+}
+#shopCart:active {
+  background-color: rgb(255, 0, 0);
+}
+
+#ItemNumber {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  position: fixed;
+  top: 37px;
+  right: 40px;
+  opacity: 1;
+  visibility: visible;
+  z-index: 1000;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2em;
+  line-height: 30px;
+  color: rgb(255, 0, 0);
+}
+
+/** Modal */
+.modal {
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  width: 60%;
+  margin: 0 auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+.modal-close-btn {
+  position: absolute;
+  right: 60px;
+  top: 60px;
+  font-size: 50px;
+}
+
+/** Overlay */
+.overlay {
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/** JS */
+.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  display: block;
+}
+
+input {
+  font-family: sans-serif;
+  font-size: 20px;
+}
+td.des {
+  font-family: sans-serif;
+  font-size: 20px;
+  width: 160px;
+}
+td.inp_long {
+  font-family: sans-serif;
+  font-size: 20px;
+}
+
+.hideclass {
+  display: none;
+}
+
+.top-left {
+  position: absolute;
+  top: 20px;
+  left: 16px;
+}
+
+input[type="submit"]:disabled {
+  background: grey;
+  cursor: not-allowed;
+}
