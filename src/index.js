@@ -26,6 +26,7 @@ const SHOMIN_ABI = [{
 const submitOrder = document.getElementById('order')
 
 const Web3 = require('web3')
+
 const web3 = new Web3('https://api.s0.ps.hmny.io')
 const getAccountsResults = document.getElementById('getAccountsResult')
 const contractAdds = '0x07DaFAf783bC253ac310692856e863b659d8F3cA'
@@ -39,14 +40,9 @@ const forwarderOrigin =
 const client = create('https://ipfs.infura.io:5001/api/v0')
 const BaseURL = 'https://ipfs.io/ipfs/'
 
-let invoiceURI1 = ''
-let invoiceURI2 = ''
-let invoiceURI = ''
 let totalPrice
 let strID = ''
 let strURL = ''
-
-const BNBws = new WebSocket('wss://stream.binance.com:9443/ws/bnbbusd@kline_15m')
 
 const runMetamask = () => {
   const isMetaMaskInstalled = () => {
@@ -122,5 +118,4 @@ const runMetamask = () => {
 window.addEventListener('DOMContentLoaded', () => {
   console.log('DOM fully loaded and parsed')
   submitOrder.onclick = generateReceipt
-  loadItems()
 })
