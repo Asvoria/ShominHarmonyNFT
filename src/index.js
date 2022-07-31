@@ -1,4 +1,3 @@
-import { create } from 'ipfs-http-client'
 import MetaMaskOnboarding from '@metamask/onboarding'
 
 const SHOMIN_ABI = [{
@@ -113,7 +112,6 @@ const runMetamask = () => {
 }
 
 const generateReceipt = async () => {
-  await updateNFTtransfer()
   await runMetamask()
 }
 
