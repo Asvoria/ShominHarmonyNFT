@@ -2,27 +2,25 @@ import { create } from 'ipfs-http-client'
 import MetaMaskOnboarding from '@metamask/onboarding'
 
 const SHOMIN_ABI = [{
-    'inputs': [
-      { 'internalType': 'string', 'name': 'newURI', 'type': 'string' },
-    ],
-    'name': 'buyMembership',
-    'outputs': [],
-    'stateMutability': 'payable',
-    'type': 'function'
-  }, {
-    'inputs': [],
-    'name': 'getLastID',
-    'outputs': [{ 'internalType': 'uint256', 'name': '', 'type': 'uint256' }],
-    'stateMutability': 'view',
-    'type': 'function',
-  }, {
-    'inputs': [{ 'internalType': 'uint256', 'name': 'tokenId', 'type': 'uint256' }],
-    'name': 'ownerOf',
-    'outputs': [{ 'internalType': 'address', 'name': '', 'type': 'address' }],
-    'stateMutability': 'view',
-    'type': 'function',
-  },
-]
+  'inputs': [
+    { 'internalType': 'string', 'name': 'newURI', 'type': 'string' },
+  ],
+  'name': 'buyMembership',
+  'outputs': [],
+  'stateMutability': 'payable',
+  'type': 'function'
+}, {
+  'inputs': [],
+  'name': 'getLastID',
+  'outputs': [{ 'internalType': 'uint256', 'name': '', 'type': 'uint256' }],
+  'stateMutability': 'view',
+  'type': 'function',
+}, {
+  'inputs': [{ 'internalType': 'uint256', 'name': 'tokenId', 'type': 'uint256' }],
+  'name': 'ownerOf',
+  'outputs': [{ 'internalType': 'address', 'name': '', 'type': 'address' }],
+  'stateMutability': 'view',
+  'type': 'function' }]
 
 const submitOrder = document.getElementById('order')
 const Web3 = require('web3')
