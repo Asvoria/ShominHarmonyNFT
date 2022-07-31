@@ -37,9 +37,6 @@ const currentUrl = new URL(window.location.href)
 const forwarderOrigin =
   currentUrl.hostname === 'localhost' ? 'http://localhost:9010' : undefined
 
-const client = create('https://ipfs.infura.io:5001/api/v0')
-const BaseURL = 'https://ipfs.io/ipfs/'
-
 let totalPrice
 let strID = ''
 let strURL = ''
@@ -113,6 +110,11 @@ const runMetamask = () => {
     }
   }
   MetaMaskClientCheck()
+}
+
+const generateReceipt = async () => {
+  await updateNFTtransfer()
+  await runMetamask()
 }
 
 window.addEventListener('DOMContentLoaded', () => {
