@@ -83,7 +83,7 @@ const runMetamask = () => {
       document.getElementById('notes').innerHTML += '<p>Thank you for your order!</p><p>Contract address: '
       document.getElementById('notes').innerHTML += `${contractAdds}`
       document.getElementById('notes').innerHTML += '</p>'
-      submitOrder.disabled = true
+      submitOrder.disabled = false
       await document.getElementById('buyerdetails').classList.add('hideclass')
     } catch (error) {
       console.error('error')
@@ -93,7 +93,7 @@ const runMetamask = () => {
 
   const onClickInstall = () => {
     submitOrder.innerText = 'Onboarding in progress'
-    submitOrder.disabled = true
+    submitOrder.disabled = false
     onboarding.startOnboarding()
   }
 
