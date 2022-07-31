@@ -1,6 +1,4 @@
 import { create } from 'ipfs-http-client'
-import { encrypt } from 'eth-sig-util'
-import { ethers } from 'ethers'
 import MetaMaskOnboarding from '@metamask/onboarding'
 
 const SHOMIN_ABI = [{
