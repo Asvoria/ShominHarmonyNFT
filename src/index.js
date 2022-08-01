@@ -139,6 +139,10 @@ const runMetamask = () => {
       console.error('error')
       console.error(error)
     }
+
+    BUTTON.onclick = onClickConnect
+    outBUTTON.onclick = onClickDisconnect
+    buyBUTTON.onclick = onClickBuy
   }
 
   const onClickInstall = () => {
@@ -158,10 +162,6 @@ const runMetamask = () => {
   }
   MetaMaskClientCheck()
 }
-
-BUTTON.onclick = onClickConnect
-outBUTTON.onclick = onClickDisconnect
-buyBUTTON.onclick = onClickBuy
 
 window.addEventListener('DOMContentLoaded', () => {
   runMetamask()
