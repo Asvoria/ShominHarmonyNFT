@@ -62,9 +62,12 @@ const runMetamask = () => {
       console.error('Logged out: ')
       console.error(account)
       BUTTON.innerText = 'Login with Metamask!'
-      outBUTTON.display = 'hide'
-      buyBUTTON.display = 'hide'
-      BUTTON.display = 'block'
+      outBUTTON.classList.add = 'hideclass'
+      outBUTTON.classList.remove = 'is-visible'
+      buyBUTTON.classList.add = 'hideclass'
+      buyBUTTON.classList.remove = 'is-visible'
+      BUTTON.classList.add = 'is-visible'
+      BUTTON.classList.remove = 'hideclass'
     } catch (error) {
       console.error('error')
       console.error(error)
@@ -109,9 +112,12 @@ const runMetamask = () => {
       document.getElementById('notes').innerHTML += `${contractAdds}`
       document.getElementById('notes').innerHTML += '</p>'
       await document.getElementById('buyerdetails').classList.add('hideclass')
-      BUTTON.display = 'hide'
-      buyBUTTON.display = 'hide'
-      outBUTTON.display = 'block'
+      outBUTTON.classList.add = 'is-visible'
+      outBUTTON.classList.remove = 'hideclass'
+      buyBUTTON.classList.add = 'hideclass'
+      buyBUTTON.classList.remove = 'is-visible'
+      BUTTON.classList.add = 'hideclass'
+      BUTTON.classList.remove = 'is-visible'
     } catch (error) {
       console.error('error')
       console.error(error)
@@ -132,9 +138,12 @@ const runMetamask = () => {
       console.log(strURL)
       outBUTTON.innerText = 'Logout!'
       buyBUTTON.innerText = 'Buy the Secret Corner Pass!'
-      BUTTON.display = 'hide'
-      outBUTTON.display = 'block'
-      buyBUTTON.display = 'block'
+      outBUTTON.classList.add = 'is-visible'
+      outBUTTON.classList.remove = 'hideclass'
+      buyBUTTON.classList.add = 'is-visible'
+      buyBUTTON.classList.remove = 'hideclass'
+      BUTTON.classList.add = 'hideclass'
+      BUTTON.classList.remove = 'is-visible'
     } catch (error) {
       console.error('error')
       console.error(error)
@@ -151,7 +160,8 @@ const runMetamask = () => {
   }
 
   const MetaMaskClientCheck = () => {
-    BUTTON.display = 'block'
+    BUTTON.classList.add = 'is-visible'
+    BUTTON.classList.remove = 'hideclass'
     if (isMetaMaskInstalled()) {
       BUTTON.innerText = 'Login with Metamask!'
       BUTTON.onclick = onClickConnect
@@ -171,7 +181,10 @@ runMetamask()
 window.addEventListener('DOMContentLoaded', () => {
   runMetamask()
   console.log('DOM fully loaded and parsed')
-  BUTTON.display = 'block'
-  outBUTTON.display = 'hide'
-  buyBUTTON.display = 'hide'
+  outBUTTON.classList.add = 'hideclass'
+  outBUTTON.classList.remove = 'is-visible'
+  buyBUTTON.classList.add = 'hideclass'
+  buyBUTTON.classList.remove = 'is-visible'
+  BUTTON.classList.add = 'is-visible'
+  BUTTON.classList.remove = 'hideclass'
 })
