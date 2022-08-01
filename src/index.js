@@ -48,7 +48,7 @@ const runMetamask = () => {
 
   const onClickDisconnect = async () => {
     try {
-      await ethereum.request({ method: 'eth_requestAccounts', params: [{eth_accounts: { }}] })
+      await ethereum.request({ method: 'eth_requestAccounts', params: [{ eth_accounts: { } }] })
     } catch (error) {
       console.error('error')
       console.error(error)
