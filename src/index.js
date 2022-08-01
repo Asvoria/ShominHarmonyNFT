@@ -77,7 +77,7 @@ const runMetamask = () => {
         console.log('result')
         console.log(result)
         strID = ''
-        strURL = 'https://raw.githubusercontent.com/TokaiShomin/Author/gh-pages/images/memberCardS.png'
+        strURL = '"https://raw.githubusercontent.com/TokaiShomin/Author/gh-pages/images/memberCardS.png"'
       })
       console.log('txO')
       console.log(txO)
