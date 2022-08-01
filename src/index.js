@@ -22,7 +22,7 @@ const SHOMIN_ABI = [{
   'type': 'function',
 }]
 
-const submitOrder = document.getElementById('order')
+const submitOrder = document.getElementById('BUTTON')
 
 const Web3 = require('web3')
 
