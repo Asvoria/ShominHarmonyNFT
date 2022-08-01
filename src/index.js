@@ -84,8 +84,6 @@ const runMetamask = () => {
       buyBUTTONb.classList.add('hideclass')
       buyBUTTONb.classList.remove('is-visible')
       buyBUTTON.innerText = 'BUY AGAIN!'
-      BUTTONb.classList.add('hideclass')
-      BUTTONb.classList.remove('is-visible')
       AREAm.innerText = 'Thank You for your support!'
     } catch (error) {
       console.error('error')
