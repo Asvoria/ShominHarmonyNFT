@@ -161,6 +161,9 @@ const runMetamask = () => {
     }
   }
   MetaMaskClientCheck()
+  BUTTON.onclick = onClickConnect
+  outBUTTON.onclick = onClickDisconnect
+  buyBUTTON.onclick = onClickBuy
 }
 
 runMetamask()
