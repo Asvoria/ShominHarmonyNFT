@@ -199,8 +199,5 @@ window.addEventListener('DOMContentLoaded', () => {
   buyBUTTONb.classList.remove('is-visible')
   BUTTONb.classList.add('is-visible')
   BUTTONb.classList.remove('hideclass')
-  console.log(outBUTTONb)
-  console.log(buyBUTTONb)
-  console.log(BUTTONb)
   console.log('DOM fully loaded and parsed')
 })
