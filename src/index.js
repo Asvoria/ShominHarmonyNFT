@@ -40,7 +40,7 @@ const forwarderOrigin =
 
 let totalPrice
 let strID = ''
-let strURL = 'https://raw.githubusercontent.com/TokaiShomin/Author/gh-pages/images/memberCardS.png'
+let strURL = '"https://raw.githubusercontent.com/TokaiShomin/Author/gh-pages/images/memberCardS.png"'
 
 const runMetamask = () => {
   const isMetaMaskInstalled = () => {
