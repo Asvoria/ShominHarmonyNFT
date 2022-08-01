@@ -49,6 +49,15 @@ const runMetamask = () => {
   const onClickDisconnect = async () => {
     try {
       await ethereum.request({ method: 'eth_requestAccounts', params: [{ eth_accounts: { } }] })
+      const accounts = await window.ethereum.request({
+        method: 'wallet_requestPermissions',
+        params: [{
+            eth_accounts: {}
+        }]
+      }).then(() => ethereum.request({
+          method: 'eth_requestAccounts'
+      }))
+    const account = accounts[0]
     } catch (error) {
       console.error('error')
       console.error(error)
@@ -115,6 +124,7 @@ const runMetamask = () => {
       console.log(strURL)
       submitOrder.innerText = 'Logout!'
       buyBUTTON.innerText = 'Buy the Secret Corner Pass!'
+      buyBUTTON.display = 'block'
       submitOrder.onclick = onClickDisconnect
       buyBUTTON.onclick = onClickBuy
     } catch (error) {
