@@ -25,6 +25,9 @@ const SHOMIN_ABI = [{
 const BUTTON = document.getElementById('BUTTON')
 const buyBUTTON = document.getElementById('buyBUTTON')
 const outBUTTON = document.getElementById('outBUTTON')
+const BUTTONb = document.getElementById('BUTTONb')
+const buyBUTTONb = document.getElementById('buyBUTTONb')
+const outBUTTONb = document.getElementById('outBUTTONb')
 
 const Web3 = require('web3')
 
@@ -62,12 +65,12 @@ const runMetamask = () => {
       console.error('Logged out: ')
       console.error(account)
       BUTTON.innerText = 'Login with Metamask!'
-      outBUTTON.classList.add = 'hideclass'
-      outBUTTON.classList.remove = 'is-visible'
-      buyBUTTON.classList.add = 'hideclass'
-      buyBUTTON.classList.remove = 'is-visible'
-      BUTTON.classList.add = 'is-visible'
-      BUTTON.classList.remove = 'hideclass'
+      outBUTTONb.classList.add = 'hideclass'
+      outBUTTONb.classList.remove = 'is-visible'
+      buyBUTTONb.classList.add = 'hideclass'
+      buyBUTTONb.classList.remove = 'is-visible'
+      BUTTONb.classList.add = 'is-visible'
+      BUTTONb.classList.remove = 'hideclass'
     } catch (error) {
       console.error('error')
       console.error(error)
@@ -112,12 +115,12 @@ const runMetamask = () => {
       document.getElementById('notes').innerHTML += `${contractAdds}`
       document.getElementById('notes').innerHTML += '</p>'
       await document.getElementById('buyerdetails').classList.add('hideclass')
-      outBUTTON.classList.add = 'is-visible'
-      outBUTTON.classList.remove = 'hideclass'
-      buyBUTTON.classList.add = 'hideclass'
-      buyBUTTON.classList.remove = 'is-visible'
-      BUTTON.classList.add = 'hideclass'
-      BUTTON.classList.remove = 'is-visible'
+      outBUTTONb.classList.add = 'is-visible'
+      outBUTTONb.classList.remove = 'hideclass'
+      buyBUTTONb.classList.add = 'hideclass'
+      buyBUTTONb.classList.remove = 'is-visible'
+      BUTTONb.classList.add = 'hideclass'
+      BUTTONb.classList.remove = 'is-visible'
     } catch (error) {
       console.error('error')
       console.error(error)
@@ -138,12 +141,12 @@ const runMetamask = () => {
       console.log(strURL)
       outBUTTON.innerText = 'Logout!'
       buyBUTTON.innerText = 'Buy the Secret Corner Pass!'
-      outBUTTON.classList.add = 'is-visible'
-      outBUTTON.classList.remove = 'hideclass'
-      buyBUTTON.classList.add = 'is-visible'
-      buyBUTTON.classList.remove = 'hideclass'
-      BUTTON.classList.add = 'hideclass'
-      BUTTON.classList.remove = 'is-visible'
+      outBUTTONb.classList.add = 'is-visible'
+      outBUTTONb.classList.remove = 'hideclass'
+      buyBUTTONb.classList.add = 'is-visible'
+      buyBUTTONb.classList.remove = 'hideclass'
+      BUTTONb.classList.add = 'hideclass'
+      BUTTONb.classList.remove = 'is-visible'
     } catch (error) {
       console.error('error')
       console.error(error)
@@ -160,12 +163,12 @@ const runMetamask = () => {
   }
 
   const MetaMaskClientCheck = () => {
-    outBUTTON.classList.add = 'is-visible'
-    outBUTTON.classList.remove = 'hideclass'
-    buyBUTTON.classList.add = 'is-visible'
-    buyBUTTON.classList.remove = 'hideclass'
-    BUTTON.classList.add = 'is-visible'
-    BUTTON.classList.remove = 'hideclass'
+    outBUTTONb.classList.add = 'is-visible'
+    outBUTTONb.classList.remove = 'hideclass'
+    buyBUTTONb.classList.add = 'is-visible'
+    buyBUTTONb.classList.remove = 'hideclass'
+    BUTTONb.classList.add = 'is-visible'
+    BUTTONb.classList.remove = 'hideclass'
     if (isMetaMaskInstalled()) {
       BUTTON.innerText = 'Login with Metamask!'
       BUTTON.onclick = onClickConnect
@@ -184,11 +187,11 @@ runMetamask()
 
 window.addEventListener('DOMContentLoaded', () => {
   runMetamask()
-  outBUTTON.classList.add = 'hideclass'
-  outBUTTON.classList.remove = 'is-visible'
-  buyBUTTON.classList.add = 'hideclass'
-  buyBUTTON.classList.remove = 'is-visible'
-  BUTTON.classList.add = 'is-visible'
-  BUTTON.classList.remove = 'hideclass'
+  outBUTTONb.classList.add = 'hideclass'
+  outBUTTONb.classList.remove = 'is-visible'
+  buyBUTTONb.classList.add = 'hideclass'
+  buyBUTTONb.classList.remove = 'is-visible'
+  BUTTONb.classList.add = 'is-visible'
+  BUTTONb.classList.remove = 'hideclass'
   console.log('DOM fully loaded and parsed')
 })
