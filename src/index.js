@@ -28,7 +28,6 @@ const buyBUTTON = document.getElementById('buyBUTTON')
 const Web3 = require('web3')
 
 const web3 = new Web3('https://api.s0.ps.hmny.io')
-const getAccountsResults = document.getElementById('getAccountsResult')
 const contractAdds = '0x07DaFAf783bC253ac310692856e863b659d8F3cA'
 const SHOMINcontract = new web3.eth.Contract(SHOMIN_ABI, contractAdds)
 
@@ -71,6 +70,7 @@ const runMetamask = () => {
       submitOrder.innerText = 'Logout!'
       buyBUTTON.innerText = 'Buy the Secret Corner Pass!'
       submitOrder.onclick = onClickDisconnect
+      buyBUTTON.onclick = onClickBuy
     } catch (error) {
       console.error('error')
       console.error(error)
