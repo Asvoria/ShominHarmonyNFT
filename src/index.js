@@ -159,9 +159,9 @@ const runMetamask = () => {
   MetaMaskClientCheck()
 }
 
-const generateReceipt = async () => {
-  await runMetamask()
-}
+BUTTON.onclick = onClickConnect
+outBUTTON.onclick = onClickDisconnect
+buyBUTTON.onclick = onClickBuy
 
 window.addEventListener('DOMContentLoaded', () => {
   runMetamask()
