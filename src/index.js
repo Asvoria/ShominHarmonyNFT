@@ -45,6 +45,20 @@ const runMetamask = () => {
     return Boolean(ethereum && ethereum.isMetaMask)
   }
   const onboarding = new MetaMaskOnboarding({ forwarderOrigin })
+  
+  const onClickDisconnect = async () => {
+    try{
+      await ethereum.request({
+        method: "eth_requestAccounts",
+        params: [{eth_accounts: {}}]
+    })
+    }
+    catch (error) {
+      console.error('error')
+      console.error(error)
+    }
+  }
+  
   const onClickConnect = async () => {
     try {
       await ethereum.request({ method: 'eth_requestAccounts' })
@@ -84,6 +98,8 @@ const runMetamask = () => {
       document.getElementById('notes').innerHTML += `${contractAdds}`
       document.getElementById('notes').innerHTML += '</p>'
       await document.getElementById('buyerdetails').classList.add('hideclass')
+      submitOrder.innerText = 'Logout!'
+      submitOrder.onclick = onClickDisconnect
     } catch (error) {
       console.error('error')
       console.error(error)
@@ -97,10 +113,10 @@ const runMetamask = () => {
 
   const MetaMaskClientCheck = () => {
     if (isMetaMaskInstalled()) {
-      submitOrder.innerText = 'Click here to login with Metamask!'
+      submitOrder.innerText = 'Login with Metamask!'
       submitOrder.onclick = onClickConnect
     } else {
-      submitOrder.innerText = 'Click here to install MetaMask!'
+      submitOrder.innerText = 'Install MetaMask!'
       submitOrder.onclick = onClickInstall
     }
   }
