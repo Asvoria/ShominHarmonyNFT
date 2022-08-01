@@ -45,15 +45,11 @@ const runMetamask = () => {
     return Boolean(ethereum && ethereum.isMetaMask)
   }
   const onboarding = new MetaMaskOnboarding({ forwarderOrigin })
-  
+
   const onClickDisconnect = async () => {
     try{
-      await ethereum.request({
-        method: "eth_requestAccounts",
-        params: [{eth_accounts: {}}]
-    })
-    }
-    catch (error) {
+      await ethereum.request({ method: "eth_requestAccounts", params: [{eth_accounts: {}}] })
+    } catch (error) {
       console.error('error')
       console.error(error)
     }
