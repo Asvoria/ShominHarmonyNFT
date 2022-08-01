@@ -24,10 +24,8 @@ const SHOMIN_ABI = [{
 
 const BUTTON = document.getElementById('BUTTON')
 const buyBUTTON = document.getElementById('buyBUTTON')
-const outBUTTON = document.getElementById('outBUTTON')
 const BUTTONb = document.getElementById('BUTTONb')
 const buyBUTTONb = document.getElementById('buyBUTTONb')
-const outBUTTONb = document.getElementById('outBUTTONb')
 
 const Web3 = require('web3')
 
@@ -53,33 +51,6 @@ const runMetamask = () => {
   function checkConnection () {
     const accounts = ethereum.request({ method: 'eth_accounts' }).then().catch(console.error)
     console.log(accounts[0])
-  }
-
-  const onClickDisconnect = async () => {
-    try {
-      await ethereum.request({ method: 'eth_requestAccounts', params: [{ eth_accounts: { } }] })
-      const accounts = await window.ethereum.request({
-        method: 'wallet_requestPermissions',
-        params: [{
-          eth_accounts: { },
-        }],
-      }).then(() => ethereum.request({
-        method: 'eth_requestAccounts',
-      }))
-      const account = accounts[0]
-      console.error('Logged out: ')
-      console.error(account)
-      BUTTON.innerText = 'Login with Metamask!'
-      outBUTTONb.classList.add('hideclass')
-      outBUTTONb.classList.remove('is-visible')
-      buyBUTTONb.classList.add('hideclass')
-      buyBUTTONb.classList.remove('is-visible')
-      BUTTONb.classList.add('is-visible')
-      BUTTONb.classList.remove('hideclass')
-    } catch (error) {
-      console.error('error')
-      console.error(error)
-    }
   }
 
   const onClickBuy = async () => {
@@ -120,8 +91,6 @@ const runMetamask = () => {
       document.getElementById('notes').innerHTML += `${contractAdds}`
       document.getElementById('notes').innerHTML += '</p>'
       await document.getElementById('buyerdetails').classList.add('hideclass')
-      outBUTTONb.classList.add('is-visible')
-      outBUTTONb.classList.remove('hideclass')
       buyBUTTONb.classList.add('hideclass')
       buyBUTTONb.classList.remove('is-visible')
       BUTTONb.classList.add('hideclass')
@@ -144,10 +113,7 @@ const runMetamask = () => {
       console.log(strID)
       console.log('xx strURL: ')
       console.log(strURL)
-      outBUTTON.innerText = 'Logout!'
       buyBUTTON.innerText = 'Buy the Secret Corner Pass!'
-      outBUTTONb.classList.add('is-visible')
-      outBUTTONb.classList.remove('hideclass')
       buyBUTTONb.classList.add('is-visible')
       buyBUTTONb.classList.remove('hideclass')
       BUTTONb.classList.add('hideclass')
@@ -158,7 +124,6 @@ const runMetamask = () => {
     }
 
     BUTTON.onclick = onClickConnect
-    outBUTTON.onclick = onClickDisconnect
     buyBUTTON.onclick = onClickBuy
   }
 
@@ -168,8 +133,6 @@ const runMetamask = () => {
   }
 
   const MetaMaskClientCheck = () => {
-    outBUTTONb.classList.add('is-visible')
-    outBUTTONb.classList.remove('hideclass')
     buyBUTTONb.classList.add('is-visible')
     buyBUTTONb.classList.remove('hideclass')
     BUTTONb.classList.add('is-visible')
@@ -185,7 +148,6 @@ const runMetamask = () => {
   MetaMaskClientCheck()
   checkConnection()
   BUTTON.onclick = onClickConnect
-  outBUTTON.onclick = onClickDisconnect
   buyBUTTON.onclick = onClickBuy
 }
 
@@ -193,8 +155,6 @@ runMetamask()
 
 window.addEventListener('DOMContentLoaded', () => {
   runMetamask()
-  outBUTTONb.classList.add('hideclass')
-  outBUTTONb.classList.remove('is-visible')
   buyBUTTONb.classList.add('hideclass')
   buyBUTTONb.classList.remove('is-visible')
   BUTTONb.classList.add('is-visible')
