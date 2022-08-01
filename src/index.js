@@ -160,6 +160,10 @@ const runMetamask = () => {
   }
 
   const MetaMaskClientCheck = () => {
+    outBUTTON.classList.add = 'is-visible'
+    outBUTTON.classList.remove = 'hideclass'
+    buyBUTTON.classList.add = 'is-visible'
+    buyBUTTON.classList.remove = 'hideclass'
     BUTTON.classList.add = 'is-visible'
     BUTTON.classList.remove = 'hideclass'
     if (isMetaMaskInstalled()) {
@@ -180,11 +184,11 @@ runMetamask()
 
 window.addEventListener('DOMContentLoaded', () => {
   runMetamask()
-  console.log('DOM fully loaded and parsed')
   outBUTTON.classList.add = 'hideclass'
   outBUTTON.classList.remove = 'is-visible'
   buyBUTTON.classList.add = 'hideclass'
   buyBUTTON.classList.remove = 'is-visible'
   BUTTON.classList.add = 'is-visible'
   BUTTON.classList.remove = 'hideclass'
+  console.log('DOM fully loaded and parsed')
 })
