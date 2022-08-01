@@ -171,7 +171,4 @@ window.addEventListener('DOMContentLoaded', () => {
   BUTTON.display = 'block'
   outBUTTON.display = 'hide'
   buyBUTTON.display = 'hide'
-  BUTTON.onclick = onClickConnect
-  outBUTTON.onclick = onClickDisconnect
-  buyBUTTON.onclick = onClickBuy
 })
