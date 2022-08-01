@@ -48,11 +48,6 @@ const runMetamask = () => {
   }
   const onboarding = new MetaMaskOnboarding({ forwarderOrigin })
 
-  function checkConnection () {
-    const accounts = ethereum.request({ method: 'eth_accounts' }).then().catch(console.error)
-    console.log(accounts[0])
-  }
-
   const onClickBuy = async () => {
     try {
       await ethereum.request({ method: 'eth_requestAccounts' })
@@ -66,7 +61,7 @@ const runMetamask = () => {
       console.log('xx strURL: ')
       console.log(strURL)
 
-      totalPrice = Number(10.0)
+      totalPrice = Number(20.0)
       const totalONE = await totalPrice * (10 ** 18)
       const txHash = await SHOMINcontract.methods.buyMembership(strURL).encodeABI()
       const txO = await ethereum.request({
@@ -85,12 +80,6 @@ const runMetamask = () => {
       })
       console.log('txO')
       console.log(txO)
-      document.getElementById('notes').innerHTML = 'Token ID: '
-      document.getElementById('notes').innerHTML += `${strID}`
-      document.getElementById('notes').innerHTML += '<p>Thank you for your order!</p><p>Contract address: '
-      document.getElementById('notes').innerHTML += `${contractAdds}`
-      document.getElementById('notes').innerHTML += '</p>'
-      await document.getElementById('buyerdetails').classList.add('hideclass')
       buyBUTTONb.classList.add('hideclass')
       buyBUTTONb.classList.remove('is-visible')
       BUTTONb.classList.add('hideclass')
@@ -146,7 +135,6 @@ const runMetamask = () => {
     }
   }
   MetaMaskClientCheck()
-  checkConnection()
   BUTTON.onclick = onClickConnect
   buyBUTTON.onclick = onClickBuy
 }
