@@ -52,12 +52,16 @@ const runMetamask = () => {
       const accounts = await window.ethereum.request({
         method: 'wallet_requestPermissions',
         params: [{
-            eth_accounts: {}
-        }]
+          eth_accounts: { },
+        }],
       }).then(() => ethereum.request({
-          method: 'eth_requestAccounts'
+        method: 'eth_requestAccounts',
       }))
-    const account = accounts[0]
+      const account = accounts[0]
+      console.error('Logged out: ')
+      console.error(account)
+      submitOrder.innerText = 'Login with Metamask!'
+      submitOrder.onclick = onClickConnect
     } catch (error) {
       console.error('error')
       console.error(error)
