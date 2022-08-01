@@ -50,7 +50,7 @@ const runMetamask = () => {
   }
   const onboarding = new MetaMaskOnboarding({ forwarderOrigin })
 
-  function checkConnection() {
+  function checkConnection () {
     ethereum.request({ method: 'eth_accounts' }).then().catch(console.error)
   }
 
