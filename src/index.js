@@ -55,28 +55,6 @@ const runMetamask = () => {
     }
   }
 
-  const onClickConnect = async () => {
-    try {
-      await ethereum.request({ method: 'eth_requestAccounts' })
-      const _accounts = await ethereum.request({
-        method: 'eth_accounts',
-      })
-      console.log('_accounts[0]: ')
-      console.log(_accounts[0] || 'Not able to get accounts')
-      console.log('xx strID: ')
-      console.log(strID)
-      console.log('xx strURL: ')
-      console.log(strURL)
-      submitOrder.innerText = 'Logout!'
-      buyBUTTON.innerText = 'Buy the Secret Corner Pass!'
-      submitOrder.onclick = onClickDisconnect
-      buyBUTTON.onclick = onClickBuy
-    } catch (error) {
-      console.error('error')
-      console.error(error)
-    }
-  }
-
   const onClickBuy = async () => {
     try {
       await ethereum.request({ method: 'eth_requestAccounts' })
@@ -117,6 +95,28 @@ const runMetamask = () => {
       await document.getElementById('buyerdetails').classList.add('hideclass')
       submitOrder.innerText = 'Logout!'
       submitOrder.onclick = onClickDisconnect
+    } catch (error) {
+      console.error('error')
+      console.error(error)
+    }
+  }
+
+  const onClickConnect = async () => {
+    try {
+      await ethereum.request({ method: 'eth_requestAccounts' })
+      const _accounts = await ethereum.request({
+        method: 'eth_accounts',
+      })
+      console.log('_accounts[0]: ')
+      console.log(_accounts[0] || 'Not able to get accounts')
+      console.log('xx strID: ')
+      console.log(strID)
+      console.log('xx strURL: ')
+      console.log(strURL)
+      submitOrder.innerText = 'Logout!'
+      buyBUTTON.innerText = 'Buy the Secret Corner Pass!'
+      submitOrder.onclick = onClickDisconnect
+      buyBUTTON.onclick = onClickBuy
     } catch (error) {
       console.error('error')
       console.error(error)
