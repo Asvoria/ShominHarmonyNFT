@@ -49,19 +49,9 @@ const runMetamask = () => {
     return Boolean(ethereum && ethereum.isMetaMask)
   }
   const onboarding = new MetaMaskOnboarding({ forwarderOrigin })
-  
-  function handleAccountsChanged(accounts) {
-    console.log(accounts)
-    if (accounts.length === 0) {
-      console.log('Account empty...')
-    } else if (accounts[0] !== currentAccount) {
-      currentAccount = accounts[0];
-      console.log(accounts[0])
-    }
-  }
 
   function checkConnection() {
-    ethereum.request({ method: 'eth_accounts' }).then(handleAccountsChanged).catch(console.error)
+    ethereum.request({ method: 'eth_accounts' }).then().catch(console.error)
   }
 
   const onClickDisconnect = async () => {
