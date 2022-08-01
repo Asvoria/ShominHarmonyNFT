@@ -91,16 +91,16 @@ const runMetamask = () => {
   }
 
   const onClickInstall = () => {
-    submitOrder.innerText = 'Onboarding in progress'
+    submitOrder.value = 'Onboarding in progress'
     onboarding.startOnboarding()
   }
 
   const MetaMaskClientCheck = () => {
     if (isMetaMaskInstalled()) {
-      submitOrder.innerText = 'Click here to login with Metamask!'
+      submitOrder.value = 'Click here to login with Metamask!'
       submitOrder.onclick = onClickConnect
     } else {
-      submitOrder.innerText = 'Click here to install MetaMask!'
+      submitOrder.value = 'Click here to install MetaMask!'
       submitOrder.onclick = onClickInstall
     }
   }
