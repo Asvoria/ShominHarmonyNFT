@@ -22,8 +22,9 @@ const SHOMIN_ABI = [{
   'type': 'function',
 }]
 
-const submitOrder = document.getElementById('BUTTON')
+const BUTTON = document.getElementById('BUTTON')
 const buyBUTTON = document.getElementById('buyBUTTON')
+const outBUTTON = document.getElementById('outBUTTON')
 
 const Web3 = require('web3')
 
@@ -60,8 +61,10 @@ const runMetamask = () => {
       const account = accounts[0]
       console.error('Logged out: ')
       console.error(account)
-      submitOrder.innerText = 'Login with Metamask!'
-      submitOrder.onclick = onClickConnect
+      BUTTON.innerText = 'Login with Metamask!'
+      outBUTTON.display = 'hide'
+      buyBUTTON.display = 'hide'
+      BUTTON.display = 'block'
     } catch (error) {
       console.error('error')
       console.error(error)
@@ -106,8 +109,9 @@ const runMetamask = () => {
       document.getElementById('notes').innerHTML += `${contractAdds}`
       document.getElementById('notes').innerHTML += '</p>'
       await document.getElementById('buyerdetails').classList.add('hideclass')
-      submitOrder.innerText = 'Logout!'
-      submitOrder.onclick = onClickDisconnect
+      BUTTON.display = 'hide'
+      buyBUTTON.display = 'hide'
+      outBUTTON.display = 'block'
     } catch (error) {
       console.error('error')
       console.error(error)
@@ -126,11 +130,11 @@ const runMetamask = () => {
       console.log(strID)
       console.log('xx strURL: ')
       console.log(strURL)
-      submitOrder.innerText = 'Logout!'
+      outBUTTON.innerText = 'Logout!'
       buyBUTTON.innerText = 'Buy the Secret Corner Pass!'
+      BUTTON.display = 'hide'
+      outBUTTON.display = 'block'
       buyBUTTON.display = 'block'
-      submitOrder.onclick = onClickDisconnect
-      buyBUTTON.onclick = onClickBuy
     } catch (error) {
       console.error('error')
       console.error(error)
@@ -138,17 +142,18 @@ const runMetamask = () => {
   }
 
   const onClickInstall = () => {
-    submitOrder.innerText = 'Onboarding in progress'
+    BUTTON.innerText = 'Onboarding in progress'
     onboarding.startOnboarding()
   }
 
   const MetaMaskClientCheck = () => {
+    BUTTON.display = 'block'
     if (isMetaMaskInstalled()) {
-      submitOrder.innerText = 'Login with Metamask!'
-      submitOrder.onclick = onClickConnect
+      BUTTON.innerText = 'Login with Metamask!'
+      BUTTON.onclick = onClickConnect
     } else {
-      submitOrder.innerText = 'Install MetaMask!'
-      submitOrder.onclick = onClickInstall
+      BUTTON.innerText = 'Install MetaMask!'
+      BUTTON.onclick = onClickInstall
     }
   }
   MetaMaskClientCheck()
@@ -161,5 +166,10 @@ const generateReceipt = async () => {
 window.addEventListener('DOMContentLoaded', () => {
   runMetamask()
   console.log('DOM fully loaded and parsed')
-  submitOrder.onclick = generateReceipt
+  BUTTON.display = 'block'
+  outBUTTON.display = 'hide'
+  buyBUTTON.display = 'hide'
+  BUTTON.onclick = onClickConnect
+  outBUTTON.onclick = onClickDisconnect
+  buyBUTTON.onclick = onClickBuy
 })
