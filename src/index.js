@@ -163,6 +163,8 @@ const runMetamask = () => {
   MetaMaskClientCheck()
 }
 
+runMetamask()
+
 window.addEventListener('DOMContentLoaded', () => {
   runMetamask()
   console.log('DOM fully loaded and parsed')
