@@ -31,7 +31,7 @@ const AREAm = document.getElementById('MessageArea')
 const Web3 = require('web3')
 
 const web3 = new Web3('https://api.s0.ps.hmny.io')
-const contractAdds = '0x07DaFAf783bC253ac310692856e863b659d8F3cA'
+const contractAdds = '0xE47231c320F2114A3C10CA95bdeba83574F32652'
 const SHOMINcontract = new web3.eth.Contract(SHOMIN_ABI, contractAdds)
 
 const currentUrl = new URL(window.location.href)
@@ -77,7 +77,7 @@ const runMetamask = () => {
         console.log('result')
         console.log(result)
         strID = ''
-        strURL = '"https://raw.githubusercontent.com/TokaiShomin/Author/gh-pages/images/memberCardS.png"'
+        strURL = ''
       })
       console.log('txO')
       console.log(txO)
