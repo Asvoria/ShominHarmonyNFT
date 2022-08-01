@@ -97,7 +97,8 @@ const runMetamask = () => {
 
   const MetaMaskClientCheck = () => {
     if (isMetaMaskInstalled()) {
-      onClickConnect()
+      submitOrder.innerText = 'Click here to login with Metamask!'
+      submitOrder.onclick = onClickConnect
     } else {
       submitOrder.innerText = 'Click here to install MetaMask!'
       submitOrder.onclick = onClickInstall
