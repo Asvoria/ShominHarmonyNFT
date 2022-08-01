@@ -23,6 +23,7 @@ const SHOMIN_ABI = [{
 }]
 
 const submitOrder = document.getElementById('BUTTON')
+const buyBUTTON = document.getElementById('buyBUTTON')
 
 const Web3 = require('web3')
 
@@ -61,12 +62,32 @@ const runMetamask = () => {
       const _accounts = await ethereum.request({
         method: 'eth_accounts',
       })
-      getAccountsResults.innerHTML = _accounts[0] || 'Not able to get accounts'
-      console.log('_accounts[0]')
-      console.log(_accounts[0])
-      console.log('xx strID')
+      console.log('_accounts[0]: ')
+      console.log(_accounts[0] || 'Not able to get accounts')
+      console.log('xx strID: ')
       console.log(strID)
-      console.log('xx strURL')
+      console.log('xx strURL: ')
+      console.log(strURL)
+      submitOrder.innerText = 'Logout!'
+      buyBUTTON.innerText = 'Buy the Secret Corner Pass!'
+      submitOrder.onclick = onClickDisconnect
+    } catch (error) {
+      console.error('error')
+      console.error(error)
+    }
+  }
+
+  const onClickBuy = async () => {
+    try {
+      await ethereum.request({ method: 'eth_requestAccounts' })
+      const _accounts = await ethereum.request({
+        method: 'eth_accounts',
+      })
+      console.log('_accounts[0]: ')
+      console.log(_accounts[0] || 'Not able to get accounts')
+      console.log('xx strID: ')
+      console.log(strID)
+      console.log('xx strURL: ')
       console.log(strURL)
 
       totalPrice = Number(10.0)
