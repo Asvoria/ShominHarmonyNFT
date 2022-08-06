@@ -44,7 +44,7 @@ header {
   border-top: 3px solid #333;
   border-bottom: 3px solid #333;
   border-left: 3px solid #333;
-  border-right: 3px solid  #333;
+  border-right: 3px solid #333;
   color: #333;
   font-family: inherit;
   font-size: inherit;
@@ -62,18 +62,19 @@ header {
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
-  }
-  
-  .btn:hover, .btn:active {
+}
+
+.btn:hover,
+.btn:active {
   color: #fff;
   border: 3px solid #333;
-  }
-  
-  .btn:hover:after {
+}
+
+.btn:hover:after {
   height: 84%;
   opacity: 1;
-  }
-  .btn:after {
+}
+.btn:after {
   width: 95%;
   height: 0;
   top: 50%;
@@ -85,11 +86,11 @@ header {
   -moz-transform: translateX(-50%) translateY(-50%);
   -ms-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
-  
-  content: '';
+
+  content: "";
   position: absolute;
   z-index: -1;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
-  }
+}
