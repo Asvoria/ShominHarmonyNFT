@@ -30,8 +30,8 @@ const AREAm = document.getElementById('MessageArea')
 
 const Web3 = require('web3')
 
-const web3 = new Web3('https://api.s0.ps.hmny.io')
-const contractAdds = '0xE47231c320F2114A3C10CA95bdeba83574F32652'
+const web3 = new Web3('https://api.harmony.one')
+const contractAdds = '0x5E3EeBc3d95D81059Ad1DA2fF41c2AcA64717c82'
 const SHOMINcontract = new web3.eth.Contract(SHOMIN_ABI, contractAdds)
 
 const currentUrl = new URL(window.location.href)
