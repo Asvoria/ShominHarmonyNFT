@@ -35,6 +35,10 @@ header {
   color: red;
 }
 
+.Success {
+  color: rgb(64, 36, 9);
+}
+
 /** JS */
 .is-visible {
   opacity: 1;
