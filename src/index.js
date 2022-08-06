@@ -102,31 +102,39 @@ const runMetamask = () => {
   const onClickBuyBNB = async () => {
     try {
       await ethereum.request({ method: 'eth_requestAccounts' })
-      const _accounts = await ethereum.request({
-        method: 'eth_accounts',
-      })
+      console.log('Get Network ID: ')
+      const ChainID = await ethereum.request({ method: 'net_version' })
+      console.log(ChainID)
 
-      const totalBNB = await totalPriceBNB * (10 ** 18)
-      const txHash = await SHOMINcontractBNB.methods.buyMembership(strURLBNB).encodeABI()
-      const txO = await ethereum.request({
-        method: 'eth_sendTransaction',
-        params: [{
-          to: contractAddsBNB,
-          from: _accounts[0],
-          value: web3BNB.utils.toHex(totalBNB),
-          data: txHash,
-        }],
-      }).then((result) => {
-        console.log('BNB chain response: ')
-        console.log(result)
-      })
+      if (ChainID === HarmonyChainID) {
+        const _accounts = await ethereum.request({
+          method: 'eth_accounts',
+        })
 
-      console.log(txO)
-      buyBUTTONbONE.classList.add('hideclass')
-      buyBUTTONbONE.classList.remove('is-visible')
-      buyBUTTONbBNB.classList.add('hideclass')
-      buyBUTTONbBNB.classList.remove('is-visible')
-      AREAm.innerText = 'Thank You for your support!'
+        const totalBNB = await totalPriceBNB * (10 ** 18)
+        const txHash = await SHOMINcontractBNB.methods.buyMembership(strURLBNB).encodeABI()
+        const txO = await ethereum.request({
+          method: 'eth_sendTransaction',
+          params: [{
+            to: contractAddsBNB,
+            from: _accounts[0],
+            value: web3BNB.utils.toHex(totalBNB),
+            data: txHash,
+          }],
+        }).then((result) => {
+          console.log('BNB chain response: ')
+          console.log(result)
+        })
+
+        console.log(txO)
+        buyBUTTONbONE.classList.add('hideclass')
+        buyBUTTONbONE.classList.remove('is-visible')
+        buyBUTTONbBNB.classList.add('hideclass')
+        buyBUTTONbBNB.classList.remove('is-visible')
+        AREAm.innerText = 'Thank You for your support!'
+      } else {
+        console.log('Error! Chain ID not match! Ask user to switch the network in wallet.')
+      }
     } catch (error) {
       console.error('error')
       console.error(error)
