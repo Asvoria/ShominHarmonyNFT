@@ -62,7 +62,7 @@ const runMetamask = () => {
         method: 'eth_accounts',
       })
       console.log('Get Network ID: ')
-      web3ONE.eth.net.getId().then(console.log)
+      await ethereum.request({ method: 'net_version' })
 
       const totalONE = await totalPriceONE * (10 ** 18)
       const txHash = await SHOMINcontractONE.methods.buyMembership(strURLONE).encodeABI()
