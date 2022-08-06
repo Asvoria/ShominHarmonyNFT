@@ -41,8 +41,8 @@ const currentUrl = new URL(window.location.href)
 const forwarderOrigin =
   currentUrl.hostname === 'localhost' ? 'http://localhost:9010' : undefined
 
-let totalPriceONE = Number(100.0)
-let totalPriceBNB = Number(0.0068)
+const totalPriceONE = Number(100.0)
+const totalPriceBNB = Number(0.0068)
 let strIDONE = ''
 let strIDBNB = ''
 let strURLONE = '{"image": "https://raw.githubusercontent.com/Asvoria/ShominHarmonyNFT/main/nft/SCCcard2022v1.json?token=GHSAT0AAAAAABXEMZSDZD7K66B5QNBFN6A4YXN67IQ"}'
@@ -67,9 +67,9 @@ const runMetamask = () => {
       const txO = await ethereum.request({
         method: 'eth_sendTransaction',
         params: [{
-          to: contractAdds,
+          to: contractAddsONE,
           from: _accounts[0],
-          value: web3.utils.toHex(totalONE),
+          value: web3ONE.utils.toHex(totalONE),
           data: txHash,
         }],
       }).then((result) => {
@@ -99,9 +99,9 @@ const runMetamask = () => {
       const txO = await ethereum.request({
         method: 'eth_sendTransaction',
         params: [{
-          to: contractAdds,
+          to: contractAddsBNB,
           from: _accounts[0],
-          value: web3.utils.toHex(totalBNB),
+          value: web3BNB.utils.toHex(totalBNB),
           data: txHash,
         }],
       }).then((result) => {
