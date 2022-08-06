@@ -23,24 +23,30 @@ const SHOMIN_ABI = [{
 }]
 
 const BUTTON = document.getElementById('BUTTON')
-const buyBUTTON = document.getElementById('buyBUTTON')
 const BUTTONb = document.getElementById('BUTTONb')
-const buyBUTTONb = document.getElementById('buyBUTTONb')
+const buyBUTTONbONE = document.getElementById('buyBUTTONbONE')
+const buyBUTTONbBNB = document.getElementById('buyBUTTONbBNB')
 const AREAm = document.getElementById('MessageArea')
 
 const Web3 = require('web3')
 
-const web3 = new Web3('https://api.harmony.one')
-const contractAdds = '0x0F10823132B05F5B18751414E3FA164b4d0Dfa38'
-const SHOMINcontract = new web3.eth.Contract(SHOMIN_ABI, contractAdds)
+const web3ONE = new Web3('https://api.harmony.one')
+const web3BNB = new Web3('https://bsc-dataseed.binance.org/')
+const contractAddsONE = '0x0F10823132B05F5B18751414E3FA164b4d0Dfa38'
+const contractAddsBNB = '0x0F10823132B05F5B18751414E3FA164b4d0Dfa38'
+const SHOMINcontractONE = new web3ONE.eth.Contract(SHOMIN_ABI, contractAddsONE)
+const SHOMINcontractBNB = new web3BNB.eth.Contract(SHOMIN_ABI, contractAddsBNB)
 
 const currentUrl = new URL(window.location.href)
 const forwarderOrigin =
   currentUrl.hostname === 'localhost' ? 'http://localhost:9010' : undefined
 
-let totalPrice
-let strID = ''
-let strURL = '{"image": "https://raw.githubusercontent.com/TokaiShomin/Author/gh-pages/images/memberCardS.png"}'
+let totalPriceONE = Number(100.0)
+let totalPriceBNB = Number(0.0068)
+let strIDONE = ''
+let strIDBNB = ''
+let strURLONE = '{"image": "https://raw.githubusercontent.com/Asvoria/ShominHarmonyNFT/main/nft/SCCcard2022v1.json?token=GHSAT0AAAAAABXEMZSDZD7K66B5QNBFN6A4YXN67IQ"}'
+let strURLBNB = '{"image": "https://raw.githubusercontent.com/Asvoria/ShominHarmonyNFT/main/nft/SCCcard2022v2.json?token=GHSAT0AAAAAABXEMZSD54ZSPXX2VCDBCXOQYXN67VQ"}'
 
 const runMetamask = () => {
   const isMetaMaskInstalled = () => {
@@ -49,22 +55,15 @@ const runMetamask = () => {
   }
   const onboarding = new MetaMaskOnboarding({ forwarderOrigin })
 
-  const onClickBuy = async () => {
+  const onClickBuyONE = async () => {
     try {
       await ethereum.request({ method: 'eth_requestAccounts' })
       const _accounts = await ethereum.request({
         method: 'eth_accounts',
       })
-      console.log('_accounts[0]: ')
-      console.log(_accounts[0] || 'Not able to get accounts')
-      console.log('xx strID: ')
-      console.log(strID)
-      console.log('xx strURL: ')
-      console.log(strURL)
 
-      totalPrice = Number(20.0)
-      const totalONE = await totalPrice * (10 ** 18)
-      const txHash = await SHOMINcontract.methods.buyMembership(strURL).encodeABI()
+      const totalONE = await totalPriceONE * (10 ** 18)
+      const txHash = await SHOMINcontractONE.methods.buyMembership(strURLONE).encodeABI()
       const txO = await ethereum.request({
         method: 'eth_sendTransaction',
         params: [{
@@ -74,16 +73,45 @@ const runMetamask = () => {
           data: txHash,
         }],
       }).then((result) => {
-        console.log('result')
-        console.log(result)
-        strID = ''
-        strURL = ''
+        strIDONE = ''
+        strURLONE = ''
       })
-      console.log('txO')
-      console.log(txO)
-      buyBUTTONb.classList.add('hideclass')
-      buyBUTTONb.classList.remove('is-visible')
-      buyBUTTON.innerText = 'BUY AGAIN!'
+      buyBUTTONbONE.classList.add('hideclass')
+      buyBUTTONbONE.classList.remove('is-visible')
+      buyBUTTONbBNB.classList.add('hideclass')
+      buyBUTTONbBNB.classList.remove('is-visible')
+      AREAm.innerText = 'Thank You for your support!'
+    } catch (error) {
+      console.error('error')
+      console.error(error)
+    }
+  }
+
+  const onClickBuyBNB = async () => {
+    try {
+      await ethereum.request({ method: 'eth_requestAccounts' })
+      const _accounts = await ethereum.request({
+        method: 'eth_accounts',
+      })
+
+      const totalBNB = await totalPriceBNB * (10 ** 18)
+      const txHash = await SHOMINcontractBNB.methods.buyMembership(strURLBNB).encodeABI()
+      const txO = await ethereum.request({
+        method: 'eth_sendTransaction',
+        params: [{
+          to: contractAdds,
+          from: _accounts[0],
+          value: web3.utils.toHex(totalBNB),
+          data: txHash,
+        }],
+      }).then((result) => {
+        strIDBNB = ''
+        strURLBNB = ''
+      })
+      buyBUTTONbONE.classList.add('hideclass')
+      buyBUTTONbONE.classList.remove('is-visible')
+      buyBUTTONbBNB.classList.add('hideclass')
+      buyBUTTONbBNB.classList.remove('is-visible')
       AREAm.innerText = 'Thank You for your support!'
     } catch (error) {
       console.error('error')
@@ -97,15 +125,10 @@ const runMetamask = () => {
       const _accounts = await ethereum.request({
         method: 'eth_accounts',
       })
-      console.log('_accounts[0]: ')
-      console.log(_accounts[0] || 'Not able to get accounts')
-      console.log('xx strID: ')
-      console.log(strID)
-      console.log('xx strURL: ')
-      console.log(strURL)
-      buyBUTTON.innerText = 'Buy the Secret Corner Pass!'
-      buyBUTTONb.classList.add('is-visible')
-      buyBUTTONb.classList.remove('hideclass')
+      buyBUTTONbONE.classList.add('is-visible')
+      buyBUTTONbONE.classList.remove('hideclass')
+      buyBUTTONbBNB.classList.add('is-visible')
+      buyBUTTONbBNB.classList.remove('hideclass')
       BUTTONb.classList.add('hideclass')
       BUTTONb.classList.remove('is-visible')
     } catch (error) {
@@ -114,7 +137,8 @@ const runMetamask = () => {
     }
 
     BUTTON.onclick = onClickConnect
-    buyBUTTON.onclick = onClickBuy
+    buyBUTTONONE.onclick = onClickBuyONE
+    buyBUTTONBNB.onclick = onClickBuyBNB
   }
 
   const onClickInstall = () => {
@@ -123,8 +147,10 @@ const runMetamask = () => {
   }
 
   const MetaMaskClientCheck = () => {
-    buyBUTTONb.classList.add('is-visible')
-    buyBUTTONb.classList.remove('hideclass')
+    buyBUTTONbONE.classList.add('is-visible')
+    buyBUTTONbONE.classList.remove('hideclass')
+    buyBUTTONbBNB.classList.add('is-visible')
+    buyBUTTONbBNB.classList.remove('hideclass')
     BUTTONb.classList.add('is-visible')
     BUTTONb.classList.remove('hideclass')
     if (isMetaMaskInstalled()) {
@@ -137,15 +163,18 @@ const runMetamask = () => {
   }
   MetaMaskClientCheck()
   BUTTON.onclick = onClickConnect
-  buyBUTTON.onclick = onClickBuy
+  buyBUTTONONE.onclick = onClickBuyONE
+  buyBUTTONBNB.onclick = onClickBuyBNB
 }
 
 runMetamask()
 
 window.addEventListener('DOMContentLoaded', () => {
   runMetamask()
-  buyBUTTONb.classList.add('hideclass')
-  buyBUTTONb.classList.remove('is-visible')
+  buyBUTTONbONE.classList.add('hideclass')
+  buyBUTTONbONE.classList.remove('is-visible')
+  buyBUTTONbBNB.classList.add('hideclass')
+  buyBUTTONbBNB.classList.remove('is-visible')
   BUTTONb.classList.add('is-visible')
   BUTTONb.classList.remove('hideclass')
   console.log('DOM fully loaded and parsed')
