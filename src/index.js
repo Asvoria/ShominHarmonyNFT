@@ -59,45 +59,44 @@ const runMetamask = () => {
 
   const onClickBuyONE = async () => {
     try {
+      await ethereum.request({ method: 'eth_requestAccounts' })
       console.log('Get Network ID: ')
       const ChainID = await ethereum.request({ method: 'net_version' })
       console.log(ChainID)
+
       if(ChainID!=HarmonyChainID){
         console.log('Error! Chain ID not match! Ask user to switch the network in wallet.')
       } else {
+        const _accounts = await ethereum.request({
+          method: 'eth_accounts',
+        })
 
-      
-      await ethereum.request({ method: 'eth_requestAccounts' })
-      const _accounts = await ethereum.request({
-        method: 'eth_accounts',
-      })
+        const totalONE = await totalPriceONE * (10 ** 18)
+        const txHash = await SHOMINcontractONE.methods.buyMembership(strURLONE).encodeABI()
+        const txO = await ethereum.request({
+          method: 'eth_sendTransaction',
+          params: [{
+            to: contractAddsONE,
+            from: _accounts[0],
+            value: web3ONE.utils.toHex(totalONE),
+            data: txHash,
+          }],
+        }).then((result) => {
+          console.log('ONE chain response: ')
+          console.log(result)
+        })
 
-      const totalONE = await totalPriceONE * (10 ** 18)
-      const txHash = await SHOMINcontractONE.methods.buyMembership(strURLONE).encodeABI()
-      const txO = await ethereum.request({
-        method: 'eth_sendTransaction',
-        params: [{
-          to: contractAddsONE,
-          from: _accounts[0],
-          value: web3ONE.utils.toHex(totalONE),
-          data: txHash,
-        }],
-      }).then((result) => {
-        console.log('ONE chain response: ')
-        console.log(result)
-      })
-
-      console.log(txO)
-      buyBUTTONbONE.classList.add('hideclass')
-      buyBUTTONbONE.classList.remove('is-visible')
-      buyBUTTONbBNB.classList.add('hideclass')
-      buyBUTTONbBNB.classList.remove('is-visible')
-      AREAm.innerText = 'Thank You for your support!'
+        console.log(txO)
+        buyBUTTONbONE.classList.add('hideclass')
+        buyBUTTONbONE.classList.remove('is-visible')
+        buyBUTTONbBNB.classList.add('hideclass')
+        buyBUTTONbBNB.classList.remove('is-visible')
+        AREAm.innerText = 'Thank You for your support!'
+      }
     } catch (error) {
       console.error('error')
       console.error(error)
     }
-  }
   }
 
   const onClickBuyBNB = async () => {
