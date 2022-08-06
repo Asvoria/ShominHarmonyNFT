@@ -22,7 +22,7 @@ header {
   text-align: center;
 }
 
-buttonsArea {
+.buttonsArea {
   display: inline;
   justify-content: center;
   text-align: center;
