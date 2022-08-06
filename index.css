@@ -22,6 +22,12 @@ header {
   align-items: center;
 }
 
+.buttonsArea {
+  justify-content: center;
+  align-items: center;
+  display: inline-block;
+}
+
 /** JS */
 .is-visible {
   opacity: 1;
