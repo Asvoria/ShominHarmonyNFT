@@ -30,6 +30,11 @@ header {
   font-family: "Source Sans Pro", sans-serif;
 }
 
+.Error {
+  font-size: larger;
+  color: red;
+}
+
 /** JS */
 .is-visible {
   opacity: 1;
