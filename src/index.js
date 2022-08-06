@@ -43,8 +43,7 @@ const forwarderOrigin =
 
 const totalPriceONE = Number(100.0)
 const totalPriceBNB = Number(0.0068)
-let strIDONE = ''
-let strIDBNB = ''
+
 let strURLONE = '{"image": "https://raw.githubusercontent.com/Asvoria/ShominHarmonyNFT/main/nft/SCCcard2022v1.json?token=GHSAT0AAAAAABXEMZSDZD7K66B5QNBFN6A4YXN67IQ"}'
 let strURLBNB = '{"image": "https://raw.githubusercontent.com/Asvoria/ShominHarmonyNFT/main/nft/SCCcard2022v2.json?token=GHSAT0AAAAAABXEMZSD54ZSPXX2VCDBCXOQYXN67VQ"}'
 
@@ -73,8 +72,6 @@ const runMetamask = () => {
           data: txHash,
         }],
       }).then((result) => {
-        strIDONE = ''
-        strURLONE = ''
         console.log(result)
       })
 
@@ -108,8 +105,6 @@ const runMetamask = () => {
           data: txHash,
         }],
       }).then((result) => {
-        strIDBNB = ''
-        strURLBNB = ''
         console.log(result)
       })
 
@@ -170,8 +165,8 @@ const runMetamask = () => {
   }
   MetaMaskClientCheck()
   BUTTON.onclick = onClickConnect
-  buyBUTTONONE.onclick = onClickBuyONE
-  buyBUTTONBNB.onclick = onClickBuyBNB
+  buyBUTTONbONE.onclick = onClickBuyONE
+  buyBUTTONbBNB.onclick = onClickBuyBNB
 }
 
 runMetamask()
