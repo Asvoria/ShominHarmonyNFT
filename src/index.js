@@ -22,6 +22,7 @@ const SHOMIN_ABI = [{
   'type': 'function',
 }]
 
+const TitleText = document.getElementById('Title')
 const BUTTON = document.getElementById('BUTTON')
 const BUTTONb = document.getElementById('BUTTONb')
 const buyBUTTONbONE = document.getElementById('buyBUTTONbONE')
@@ -138,6 +139,7 @@ const runMetamask = () => {
       console.error(error)
     }
 
+    TitleText.classList.add('is-visible')
     BUTTON.onclick = onClickConnect
     buyBUTTONbONE.onclick = onClickBuyONE
     buyBUTTONbBNB.onclick = onClickBuyBNB
@@ -173,6 +175,7 @@ runMetamask()
 
 window.addEventListener('DOMContentLoaded', () => {
   runMetamask()
+  TitleText.classList.add('hideclass')
   buyBUTTONbONE.classList.add('hideclass')
   buyBUTTONbONE.classList.remove('is-visible')
   buyBUTTONbBNB.classList.add('hideclass')
