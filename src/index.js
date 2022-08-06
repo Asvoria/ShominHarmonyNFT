@@ -75,6 +75,7 @@ const runMetamask = () => {
       }).then((result) => {
         strIDONE = ''
         strURLONE = ''
+        console.log(result)
       })
 
       console.log(tx0)
@@ -109,6 +110,7 @@ const runMetamask = () => {
       }).then((result) => {
         strIDBNB = ''
         strURLBNB = ''
+        console.log(result)
       })
 
       buyBUTTONbONE.classList.add('hideclass')
@@ -128,6 +130,7 @@ const runMetamask = () => {
       const _accounts = await ethereum.request({
         method: 'eth_accounts',
       })
+      console.log(_accounts[0])
       buyBUTTONbONE.classList.add('is-visible')
       buyBUTTONbONE.classList.remove('hideclass')
       buyBUTTONbBNB.classList.add('is-visible')
