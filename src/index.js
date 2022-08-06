@@ -33,6 +33,8 @@ const Web3 = require('web3')
 
 const web3ONE = new Web3('https://api.harmony.one')
 const web3BNB = new Web3('https://bsc-dataseed.binance.org/')
+const HarmonyChainID = '1666600000'
+const BinanceChainID = '56'
 const contractAddsONE = '0x0F10823132B05F5B18751414E3FA164b4d0Dfa38'
 const contractAddsBNB = '0x0F10823132B05F5B18751414E3FA164b4d0Dfa38'
 const SHOMINcontractONE = new web3ONE.eth.Contract(SHOMIN_ABI, contractAddsONE)
@@ -57,13 +59,18 @@ const runMetamask = () => {
 
   const onClickBuyONE = async () => {
     try {
+      console.log('Get Network ID: ')
+      const ChainID = await ethereum.request({ method: 'net_version' })
+      console.log(ChainID)
+      if(ChainID!=HarmonyChainID){
+        console.log('Error! Chain ID not match! Ask user to switch the network in wallet.')
+      } else {
+
+      
       await ethereum.request({ method: 'eth_requestAccounts' })
       const _accounts = await ethereum.request({
         method: 'eth_accounts',
       })
-      console.log('Get Network ID: ')
-      const ChainID = await ethereum.request({ method: 'net_version' })
-      console.log(ChainID)
 
       const totalONE = await totalPriceONE * (10 ** 18)
       const txHash = await SHOMINcontractONE.methods.buyMembership(strURLONE).encodeABI()
@@ -90,6 +97,7 @@ const runMetamask = () => {
       console.error('error')
       console.error(error)
     }
+  }
   }
 
   const onClickBuyBNB = async () => {
