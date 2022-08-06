@@ -43,7 +43,7 @@ header {
   border-radius: 15px;
   border: 2px solid rgb(140, 98, 18);
   color: #333;
-  font-family: inherit;
+  font-family: "Monaco", "Lucida Console", "Courier New", monospace;;
   font-size: inherit;
   color: inherit;
   background: none;
@@ -69,7 +69,7 @@ header {
 }
 
 .btn:hover:after {
-  height: 94%;
+  height: 93%;
   opacity: 1;
 }
 .btn:after {
