@@ -134,12 +134,13 @@ const runMetamask = () => {
       buyBUTTONbBNB.classList.remove('hideclass')
       BUTTONb.classList.add('hideclass')
       BUTTONb.classList.remove('is-visible')
+      TitleText.classList.add('is-visible')
+      TitleText.classList.remove('hideclass')
     } catch (error) {
       console.error('error')
       console.error(error)
     }
 
-    TitleText.classList.add('is-visible')
     BUTTON.onclick = onClickConnect
     buyBUTTONbONE.onclick = onClickBuyONE
     buyBUTTONbBNB.onclick = onClickBuyBNB
@@ -174,8 +175,8 @@ const runMetamask = () => {
 runMetamask()
 
 window.addEventListener('DOMContentLoaded', () => {
-  runMetamask()
   TitleText.classList.add('hideclass')
+  runMetamask()
   buyBUTTONbONE.classList.add('hideclass')
   buyBUTTONbONE.classList.remove('is-visible')
   buyBUTTONbBNB.classList.add('hideclass')
