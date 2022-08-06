@@ -89,11 +89,12 @@ const runMetamask = () => {
         buyBUTTONbONE.classList.remove('is-visible')
         buyBUTTONbBNB.classList.add('hideclass')
         buyBUTTONbBNB.classList.remove('is-visible')
+        AREAm.classList.remove('Error')
         AREAm.innerText = 'Thank You for your support!'
       } else {
         console.log('Error! Chain ID not match! Ask user to switch the network in wallet.')
         AREAm.classList.add('Error')
-        AREAm.innerText = 'Your selected network on Metamask Wallet does not match! <br>Please Select Harmony Mainnet.'
+        AREAm.innerText = 'Your selected network on Metamask Wallet does not match! Please Select Harmony Mainnet.'
       }
     } catch (error) {
       console.error('error')
@@ -133,11 +134,12 @@ const runMetamask = () => {
         buyBUTTONbONE.classList.remove('is-visible')
         buyBUTTONbBNB.classList.add('hideclass')
         buyBUTTONbBNB.classList.remove('is-visible')
+        AREAm.classList.remove('Error')
         AREAm.innerText = 'Thank You for your support!'
       } else {
         AREAm.classList.add('Error')
         console.log('Error! Chain ID not match! Ask user to switch the network in wallet.')
-        AREAm.innerText = 'Your selected network on Metamask Wallet does not match! <br>Please Select Smart Chain Mainnet.'
+        AREAm.innerText = 'Your selected network on Metamask Wallet does not match! Please Select Smart Chain Mainnet.'
       }
     } catch (error) {
       console.error('error')
