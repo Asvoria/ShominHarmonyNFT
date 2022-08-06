@@ -25,6 +25,7 @@ header {
 .buttonsArea {
   justify-content: center;
   align-items: center;
+  display: inline-block;
 }
 
 /** JS */
