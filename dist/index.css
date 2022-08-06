@@ -40,7 +40,8 @@ header {
 }
 
 .btn {
-  border: none;
+  border-radius: 15px;
+  border: 2px solid rgb(140, 98, 18);
   color: #333;
   font-family: inherit;
   font-size: inherit;
