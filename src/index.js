@@ -20,6 +20,18 @@ const SHOMIN_ABI = [{
   'outputs': [{ 'internalType': 'address', 'name': '', 'type': 'address' }],
   'stateMutability': 'view',
   'type': 'function',
+}, {
+  'inputs': [],
+  'name': '_tokenIds',
+  'outputs': [{ 'internalType': 'uint256', 'name': '_value', 'type': 'uint256' }],
+  'stateMutability': 'view',
+  'type': 'function',
+}, {
+  "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }],
+  "name": "balanceOf",
+  "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+  "stateMutability": "view",
+  "type": "function",
 }]
 
 const TitleText = document.getElementById('Title')
@@ -83,7 +95,8 @@ const runMetamask = () => {
           console.log('ONE chain response: ')
           console.log(result)
         })
-
+        console.log(txO)
+        txO = await TOSScontract.methods.getLastID().call()
         console.log(txO)
         buyBUTTONbONE.classList.add('hideclass')
         buyBUTTONbONE.classList.remove('is-visible')
@@ -91,11 +104,11 @@ const runMetamask = () => {
         buyBUTTONbBNB.classList.remove('is-visible')
         AREAm.classList.remove('Error')
         AREAm.classList.add('Success')
-        AREAm.innerText = `Thank You for your support!\nYou may add the NFT token to your Metamask Mobile Wallet with following informtion.\nContract Address: |${contractAddsONE}|\nToken ID: `
+        AREAm.innerText = `Thank You for your support!\nYou may add the NFT token to your Metamask Mobile Wallet with following informtion.\nContract Address: |${contractAddsONE}|\nToken ID: |${txO}|`
       } else {
         console.log('Error! Chain ID not match! Ask user to switch the network in wallet.')
         AREAm.classList.add('Error')
-        AREAm.innerText = `Your selected network on Metamask |${contractAddsONE}|\nWallet does not match! Please Select Harmony Shard 0 Mainnet.`
+        AREAm.innerText = `Your selected network on Metamask Wallet does not match! Please Select Harmony Shard 0 Mainnet.`
       }
     } catch (error) {
       console.error('error')
