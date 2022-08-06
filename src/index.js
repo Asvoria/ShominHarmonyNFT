@@ -78,7 +78,7 @@ const runMetamask = () => {
         console.log(result)
       })
 
-      console.log(tx0)
+      console.log(txO)
       buyBUTTONbONE.classList.add('hideclass')
       buyBUTTONbONE.classList.remove('is-visible')
       buyBUTTONbBNB.classList.add('hideclass')
@@ -113,6 +113,7 @@ const runMetamask = () => {
         console.log(result)
       })
 
+      console.log(txO)
       buyBUTTONbONE.classList.add('hideclass')
       buyBUTTONbONE.classList.remove('is-visible')
       buyBUTTONbBNB.classList.add('hideclass')
@@ -143,8 +144,8 @@ const runMetamask = () => {
     }
 
     BUTTON.onclick = onClickConnect
-    buyBUTTONONE.onclick = onClickBuyONE
-    buyBUTTONBNB.onclick = onClickBuyBNB
+    buyBUTTONbONE.onclick = onClickBuyONE
+    buyBUTTONbBNB.onclick = onClickBuyBNB
   }
 
   const onClickInstall = () => {
