@@ -41,10 +41,6 @@ header {
 
 .btn {
   border: none;
-  border-top: 3px solid #333;
-  border-bottom: 3px solid #333;
-  border-left: 3px solid #333;
-  border-right: 3px solid #333;
   color: #333;
   font-family: inherit;
   font-size: inherit;
@@ -66,12 +62,12 @@ header {
 
 .btn:hover,
 .btn:active {
-  color: #fff;
-  border: 3px solid #333;
+  color: rgb(255, 237, 173);
+  border: 3px solid rgb(140, 98, 18);
 }
 
 .btn:hover:after {
-  height: 84%;
+  height: 82%;
   opacity: 1;
 }
 .btn:after {
@@ -79,8 +75,7 @@ header {
   height: 0;
   top: 50%;
   left: 50%;
-  border: 1px solid #fff;
-  background: #333;
+  background: rgb(140, 98, 18);
   opacity: 0;
   -webkit-transform: translateX(-50%) translateY(-50%);
   -moz-transform: translateX(-50%) translateY(-50%);
