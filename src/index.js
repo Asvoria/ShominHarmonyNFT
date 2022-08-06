@@ -64,7 +64,7 @@ const runMetamask = () => {
       const ChainID = await ethereum.request({ method: 'net_version' })
       console.log(ChainID)
 
-      if(ChainID!=HarmonyChainID){
+      if (ChainID !== HarmonyChainID) {
         console.log('Error! Chain ID not match! Ask user to switch the network in wallet.')
       } else {
         const _accounts = await ethereum.request({
