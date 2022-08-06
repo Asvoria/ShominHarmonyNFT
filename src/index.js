@@ -64,9 +64,7 @@ const runMetamask = () => {
       const ChainID = await ethereum.request({ method: 'net_version' })
       console.log(ChainID)
 
-      if (ChainID !== HarmonyChainID) {
-        console.log('Error! Chain ID not match! Ask user to switch the network in wallet.')
-      } else {
+      if (ChainID === HarmonyChainID) {
         const _accounts = await ethereum.request({
           method: 'eth_accounts',
         })
@@ -92,6 +90,8 @@ const runMetamask = () => {
         buyBUTTONbBNB.classList.add('hideclass')
         buyBUTTONbBNB.classList.remove('is-visible')
         AREAm.innerText = 'Thank You for your support!'
+      } else {
+        console.log('Error! Chain ID not match! Ask user to switch the network in wallet.')
       }
     } catch (error) {
       console.error('error')
