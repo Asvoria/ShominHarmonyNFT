@@ -94,7 +94,7 @@ const runMetamask = () => {
       } else {
         console.log('Error! Chain ID not match! Ask user to switch the network in wallet.')
         AREAm.classList.add('Error')
-        AREAm.innerText = 'Your selected network on Metamask Wallet does not match! Please Select Harmony Mainnet.'
+        AREAm.innerText = 'Your selected network on Metamask Wallet does not match! Please Select Harmony Shard 0 Mainnet.'
       }
     } catch (error) {
       console.error('error')
