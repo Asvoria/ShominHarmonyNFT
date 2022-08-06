@@ -91,7 +91,7 @@ const runMetamask = () => {
         buyBUTTONbBNB.classList.remove('is-visible')
         AREAm.classList.remove('Error')
         AREAm.classList.add('Success')
-        AREAm.innerText = 'Thank You for your support!\nYou may add the NFT token to your Metamask Mobile Wallet with following informtion.\nContract Address: ' + contractAddsONE + '\nToken ID: '
+        AREAm.innerText = 'Thank You for your support!\nYou may add the NFT token to your Metamask Mobile Wallet with following informtion.\nContract Address: '|${contractAddsONE}|'\nToken ID: '
       } else {
         console.log('Error! Chain ID not match! Ask user to switch the network in wallet.')
         AREAm.classList.add('Error')
