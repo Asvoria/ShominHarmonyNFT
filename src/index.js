@@ -76,6 +76,8 @@ const runMetamask = () => {
         strIDONE = ''
         strURLONE = ''
       })
+
+      console.log(tx0)
       buyBUTTONbONE.classList.add('hideclass')
       buyBUTTONbONE.classList.remove('is-visible')
       buyBUTTONbBNB.classList.add('hideclass')
@@ -108,6 +110,7 @@ const runMetamask = () => {
         strIDBNB = ''
         strURLBNB = ''
       })
+
       buyBUTTONbONE.classList.add('hideclass')
       buyBUTTONbONE.classList.remove('is-visible')
       buyBUTTONbBNB.classList.add('hideclass')
