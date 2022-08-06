@@ -90,7 +90,8 @@ const runMetamask = () => {
         buyBUTTONbBNB.classList.add('hideclass')
         buyBUTTONbBNB.classList.remove('is-visible')
         AREAm.classList.remove('Error')
-        AREAm.innerText = 'Thank You for your support!'
+        AREAm.classList.add('Success')
+        AREAm.innerText = 'Thank You for your support!\nYou may add the NFT token to your Metamask Mobile Wallet with following informtion.\nContract Address: ' + '\nToken ID: '
       } else {
         console.log('Error! Chain ID not match! Ask user to switch the network in wallet.')
         AREAm.classList.add('Error')
@@ -135,7 +136,8 @@ const runMetamask = () => {
         buyBUTTONbBNB.classList.add('hideclass')
         buyBUTTONbBNB.classList.remove('is-visible')
         AREAm.classList.remove('Error')
-        AREAm.innerText = 'Thank You for your support!'
+        AREAm.classList.add('Success')
+        AREAm.innerText = 'Thank You for your support!\nYou may add the NFT token to your Metamask Mobile Wallet with following informtion.\nContract Address: \nToken ID: '
       } else {
         AREAm.classList.add('Error')
         console.log('Error! Chain ID not match! Ask user to switch the network in wallet.')
