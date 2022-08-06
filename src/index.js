@@ -73,6 +73,7 @@ const runMetamask = () => {
           data: txHash,
         }],
       }).then((result) => {
+        console.log('ONE chain response: ')
         console.log(result)
       })
 
@@ -106,6 +107,7 @@ const runMetamask = () => {
           data: txHash,
         }],
       }).then((result) => {
+        console.log('BNB chain response: ')
         console.log(result)
       })
 
