@@ -168,9 +168,10 @@ const runMetamask = () => {
       })
       const ChainID = await ethereum.request({ method: 'net_version' })
       const passVar = `${_accounts[0]}`
+      console.log(_accounts[0])
       if (ChainID === HarmonyChainID) {
         let OwnerCheckONE = 0
-        const BalanceInContractONE = await SHOMINcontractBNB.methods.balanceOf(_accounts[0]).encodeABI().call()
+        const BalanceInContractONE = await SHOMINcontractBNB.methods.balanceOf(_accounts[0]).call()
         console.log(BalanceInContractONE)
         console.log(BalanceInContractONE[0])
 
