@@ -164,9 +164,9 @@ const runMetamask = () => {
       const _accounts = await ethereum.request({
         method: 'eth_accounts',
       })
-      const BalanceInContractONE = await SHOMINcontractONE.methods.balanceOf({ 'owner': `|${_accounts[0]}|` }).encodeABI().call()
+      const BalanceInContractONE = await SHOMINcontractONE.methods.balanceOf({ 'owner': `${_accounts[0]}` }).encodeABI().call()
       if (BalanceInContractONE === 0) {
-        const BalanceInContractBNB = await SHOMINcontractBNB.methods.balanceOf({ 'owner': `|${_accounts[0]}|` }).encodeABI().call()
+        const BalanceInContractBNB = await SHOMINcontractBNB.methods.balanceOf({ 'owner': `${_accounts[0]}` }).encodeABI().call()
         if (BalanceInContractBNB === 0) {
           console.log('No Token Found!')
         } else {
