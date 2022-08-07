@@ -9,12 +9,6 @@ const SHOMIN_ABI = [{
   'stateMutability': 'payable',
   'type': 'function',
 }, {
-  'inputs': [],
-  'name': 'getLastID',
-  'outputs': [{ 'internalType': 'uint256', 'name': '', 'type': 'uint256' }],
-  'stateMutability': 'view',
-  'type': 'function',
-}, {
   'inputs': [{ 'internalType': 'uint256', 'name': 'tokenId', 'type': 'uint256' }],
   'name': 'ownerOf',
   'outputs': [{ 'internalType': 'address', 'name': '', 'type': 'address' }],
@@ -97,7 +91,7 @@ const runMetamask = () => {
           console.log(result)
         })
         console.log(txO)
-        txO = await TOSScontract.methods.getLastID().call()
+        txO = await SHOMINcontractONE.methods._tokenIds().call()
         console.log(txO)
         buyBUTTONbONE.classList.add('hideclass')
         buyBUTTONbONE.classList.remove('is-visible')
@@ -174,10 +168,10 @@ const runMetamask = () => {
         if (BalanceInContractBNB === 0) {
           console.log('No Token Found!')
         } else {
-          ContentArea.innerHTML = '<div id="sscONE">No ONE</div><div id="sscBNB">BNB</div><div id="special-content-post"></div>';
+          ContentArea.innerHTML = '<div id="sscONE">No ONE</div><div id="sscBNB">BNB</div><div id="special-content-post"></div>'
         }
       } else {
-        ContentArea.innerHTML = '<div id="sscONE">ONE</div><div id="sscBNB">Not sure BNB</div><div id="special-content-post"></div>';
+        ContentArea.innerHTML = '<div id="sscONE">ONE</div><div id="sscBNB">Not sure BNB</div><div id="special-content-post"></div>'
       }
 
       buyBUTTONbONE.classList.add('is-visible')
