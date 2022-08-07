@@ -167,13 +167,11 @@ const runMetamask = () => {
       if (ChainID === HarmonyChainID) {
         let OwnerCheckONE = 0
         const EncodeTxONE = await SHOMINcontractONE.methods.balanceOf(passVar).encodeABI()
-
-        const txO = await ethereum.request({
-          method: 'eth_requestAccounts',
+        console.log(EncodeTxONE)
+        const txO = await SHOMINcontractONE.functions.call({
+          method: 'balanceOf',
           params: [{
-            to: contractAddsONE,
-            from: _accounts[0],
-            data: EncodeTxONE,
+            address: passVar,
           }],
         }).then((result) => {
           console.log('ONE chain response: ')
