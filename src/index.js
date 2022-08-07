@@ -30,6 +30,33 @@ const SHOMIN_ABI = [{
   'outputs': [{ 'internalType': 'string', 'name': '', 'type': 'string' }],
   'stateMutability': 'view',
   'type': 'function',
+}, {
+  'anonymous': false,
+  'inputs': [
+    { 'indexed': true, 'internalType': 'address', 'name': 'owner', 'type': 'address' },
+    { 'indexed': true, 'internalType': 'address', 'name': 'approved', 'type': 'address' },
+    { 'indexed': true, 'internalType': 'uint256', 'name': 'tokenId', 'type': 'uint256'},
+  ],
+  'name': 'Approval',
+  'type': 'event',
+}, {
+  'anonymous': false,
+  'inputs': [
+    { 'indexed': true, 'internalType': 'address', 'name': 'owner', 'type': 'address' },
+    { 'indexed': true, 'internalType': 'address', 'name': 'operator', 'type': 'address' },
+    { 'indexed': false, 'internalType': 'bool', 'name': 'approved', 'type': 'bool' }
+  ],
+  'name': 'ApprovalForAll',
+  'type': 'event',
+}, {
+  'anonymous': false,
+  'inputs': [
+    { 'indexed': true, 'internalType': 'address', 'name': 'from', 'type': 'address' },
+    { 'indexed': true, 'internalType': 'address', 'name': 'to', 'type': 'address' },
+    { 'indexed': true, 'internalType': 'uint256', 'name': 'tokenId', 'type': 'uint256'}
+  ],
+  'name': 'Transfer',
+  'type': 'event',
 }]
 
 const TitleText = document.getElementById('Title')
@@ -88,12 +115,11 @@ const runMetamask = () => {
             value: web3ONE.utils.toHex(totalONE),
             data: txHash,
           }],
-        }).then((result) => {
+        }).then((tokenId) => {
           console.log('ONE chain response: ')
-          console.log(result)
+          console.log(tokenId)
         })
         console.log(txO)
-        console.log(txO[0])
         buyBUTTONbONE.classList.add('hideclass')
         buyBUTTONbONE.classList.remove('is-visible')
         buyBUTTONbBNB.classList.add('hideclass')
