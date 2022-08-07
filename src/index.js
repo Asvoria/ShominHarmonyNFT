@@ -179,7 +179,7 @@ const runMetamask = () => {
           console.log('ONE chain response: ')
           console.log(result)
         })
-        let BalanceInContractONE = txO[0]
+        const BalanceInContractONE = txO[0]
         console.log(BalanceInContractONE)
 
         if (BalanceInContractONE > 0) {
