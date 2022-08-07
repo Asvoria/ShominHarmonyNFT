@@ -58,8 +58,8 @@ const forwarderOrigin =
 const totalPriceONE = Number(100.0)
 const totalPriceBNB = Number(0.0068)
 
-const strURLONE = '{"image": "https://raw.githubusercontent.com/Asvoria/ShominHarmonyNFT/main/nft/SCCcard2022v1.json?token=GHSAT0AAAAAABXEMZSDZD7K66B5QNBFN6A4YXN67IQ"}'
-const strURLBNB = '{"image": "https://raw.githubusercontent.com/Asvoria/ShominHarmonyNFT/main/nft/SCCcard2022v2.json?token=GHSAT0AAAAAABXEMZSD54ZSPXX2VCDBCXOQYXN67VQ"}'
+const strURLONE = 'https://raw.githubusercontent.com/TokaiShomin/Author/gh-pages/SCCcard2022v1.json'
+const strURLBNB = 'https://raw.githubusercontent.com/TokaiShomin/Author/gh-pages/SCCcard2022v2.json'
 
 const runMetamask = () => {
   const isMetaMaskInstalled = () => {
