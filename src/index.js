@@ -179,11 +179,11 @@ const runMetamask = () => {
           console.log('ONE chain response: ')
           console.log(result)
         })
-        BalanceInContractONE = txO[0]
+        let BalanceInContractONE = txO[0]
         console.log(BalanceInContractONE)
 
         if (BalanceInContractONE > 0) {
-          OwnerCheckONE = BalanceInContractONE[0]
+          OwnerCheckONE = BalanceInContractONE
         }
 
         ContentArea.innerHTML = `<div id="sscONE">ONE: ${OwnerCheckONE}</div>`
