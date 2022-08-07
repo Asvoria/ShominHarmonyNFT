@@ -168,6 +168,7 @@ const runMetamask = () => {
         let OwnerCheckONE = 0
         const BalanceInContractONE = await SHOMINcontractBNB.methods.balanceOf(passVar).call()
         console.log(BalanceInContractONE)
+        console.log(BalanceInContractONE[0])
 
         if (BalanceInContractONE > 0) {
           OwnerCheckONE = BalanceInContractONE
