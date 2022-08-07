@@ -180,7 +180,7 @@ const runMetamask = () => {
       } else {
         console.log('Wrong Chain!')
         AREAm.classList.add('Error')
-        AREAm.innerText = `Wrong network detected!\nPlease set Metamask Wallet Network to Harmony Shard 0 Mainnet or Binance Smart Chain Mainnet.`
+        AREAm.innerText = `Wrong network detected!\nPlease set Metamask Network to Harmony Shard 0 Mainnet or Binance Smart Chain Mainnet.`
       }
 
       buyBUTTONbONE.classList.add('is-visible')
