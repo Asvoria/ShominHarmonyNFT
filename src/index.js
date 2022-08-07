@@ -46,7 +46,7 @@ const web3ONE = new Web3('https://api.s0.ps.hmny.io')
 const web3BNB = new Web3('https://bsc-dataseed.binance.org/')
 const HarmonyChainID = '1666900000'
 const BinanceChainID = '56'
-const contractAddsONE = '0xdc5be95754926cBCDCf7e3B73D50e28f3ba98f9b'
+const contractAddsONE = '0xEc3dEbfd6Bc901334BdE9ea077DB4ac4570Bbd73'
 const contractAddsBNB = '0xdc5be95754926cBCDCf7e3B73D50e28f3ba98f9b'
 const SHOMINcontractONE = new web3ONE.eth.Contract(SHOMIN_ABI, contractAddsONE)
 const SHOMINcontractBNB = new web3BNB.eth.Contract(SHOMIN_ABI, contractAddsBNB)
@@ -167,25 +167,18 @@ const runMetamask = () => {
         method: 'eth_accounts',
       })
       const ChainID = await ethereum.request({ method: 'net_version' })
-      const passVar = `${_accounts[0]}`
       console.log(_accounts[0])
       if (ChainID === HarmonyChainID) {
         let OwnerCheckONE = 0
         const BalanceInContractONE = await SHOMINcontractONE.methods.balanceOf(_accounts[0]).call()
-        console.log(BalanceInContractONE)
-        console.log(BalanceInContractONE[0])
-
         if (BalanceInContractONE > 0) {
           OwnerCheckONE = BalanceInContractONE
         }
-
         ContentArea.innerHTML = `<div id="sscONE">ONE: ${OwnerCheckONE}</div>`
       } else if (ChainID === BinanceChainID) {
         let OwnerCheckBNB = 0
-
-        const BalanceInContractBNB = await SHOMINcontractBNB.balanceOf(passVar)
+        const BalanceInContractBNB = await SHOMINcontractBNB.methods.balanceOf(_accounts[0]).call()
         console.log(BalanceInContractBNB)
-
         if (BalanceInContractBNB > 0) {
           OwnerCheckBNB = BalanceInContractBNB[0]
         }
