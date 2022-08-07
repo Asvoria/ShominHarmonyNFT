@@ -163,9 +163,6 @@ const runMetamask = () => {
       const ChainID = await ethereum.request({ method: 'net_version' })
       console.log(_accounts[0])
       if (ChainID === HarmonyChainID) {
-        buyBUTTONbONE.classList.add('is-visible')
-        buyBUTTONbONE.classList.remove('hideclass')
-
         let OwnerCheckONE = 0
         const BalanceInContractONE = await SHOMINcontractONE.methods.balanceOf(_accounts[0]).call()
         if (BalanceInContractONE > 0) {
@@ -173,9 +170,6 @@ const runMetamask = () => {
         }
         ContentArea.innerHTML = `<div id="sscONE">ONE: ${OwnerCheckONE}</div>`
       } else if (ChainID === BinanceChainID) {
-        buyBUTTONbBNB.classList.add('is-visible')
-        buyBUTTONbBNB.classList.remove('hideclass')
-
         let OwnerCheckBNB = 0
         const BalanceInContractBNB = await SHOMINcontractBNB.methods.balanceOf(_accounts[0]).call()
         console.log(BalanceInContractBNB)
@@ -187,6 +181,15 @@ const runMetamask = () => {
         console.log('Wrong Chain!')
         AREAm.classList.add('Error')
         AREAm.innerText = `Wrong network detected!\nPlease set Metamask Network to Harmony Shard 0 Mainnet or Binance Smart Chain Mainnet.`
+      }
+
+      if (OwnerCheckONE > 0) {
+        buyBUTTONbONE.classList.add('is-visible')
+        buyBUTTONbONE.classList.remove('hideclass')
+      }
+      if (OwnerCheckBNB > 0) {
+        buyBUTTONbBNB.classList.add('is-visible')
+        buyBUTTONbBNB.classList.remove('hideclass')
       }
 
       BUTTONb.classList.add('hideclass')
