@@ -170,7 +170,7 @@ const runMetamask = () => {
       const BalanceInContractONE = await SHOMINcontractONE.methods.balanceOf(`${_accounts[0]}`).encodeABI()
       if (BalanceInContractONE > 0) {
         OwnerCheckONE = BalanceInContractONE
-      } 
+      }
       const BalanceInContractBNB = await SHOMINcontractBNB.methods.balanceOf(`${_accounts[0]}`).encodeABI()
       if (BalanceInContractBNB > 0) {
         OwnerCheckBNB = BalanceInContractBNB
