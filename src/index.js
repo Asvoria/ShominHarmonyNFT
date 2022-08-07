@@ -155,6 +155,8 @@ const runMetamask = () => {
   }
 
   const onClickConnect = async () => {
+    let OwnerCheckONE = 0
+    let OwnerCheckBNB = 0
     try {
       await ethereum.request({ method: 'eth_requestAccounts' })
       const _accounts = await ethereum.request({
@@ -163,14 +165,12 @@ const runMetamask = () => {
       const ChainID = await ethereum.request({ method: 'net_version' })
       console.log(_accounts[0])
       if (ChainID === HarmonyChainID) {
-        let OwnerCheckONE = 0
         const BalanceInContractONE = await SHOMINcontractONE.methods.balanceOf(_accounts[0]).call()
         if (BalanceInContractONE > 0) {
           OwnerCheckONE = BalanceInContractONE
         }
         ContentArea.innerHTML = `<div id="sscONE">ONE: ${OwnerCheckONE}</div>`
       } else if (ChainID === BinanceChainID) {
-        let OwnerCheckBNB = 0
         const BalanceInContractBNB = await SHOMINcontractBNB.methods.balanceOf(_accounts[0]).call()
         console.log(BalanceInContractBNB)
         if (BalanceInContractBNB > 0) {
