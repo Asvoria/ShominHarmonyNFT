@@ -166,7 +166,9 @@ const runMetamask = () => {
       const passVar = `${_accounts[0]}`
       if (ChainID === HarmonyChainID) {
         let OwnerCheckONE = 0
-        const BalanceInContractONE = await SHOMINcontractONE.methods.balanceOf(passVar).encodeABI().call((err, result) => { console.log(result) })
+        const BalanceInContractONE = await SHOMINcontractONE.methods.balanceOf(passVar).encodeABI().call((result) => {
+          console.log(result)
+        })
         if (BalanceInContractONE > 0) {
           OwnerCheckONE = BalanceInContractONE[0]
         }
@@ -174,7 +176,9 @@ const runMetamask = () => {
         ContentArea.innerHTML = `<div id="sscONE">ONE: ${OwnerCheckONE}</div>`
       } else if (ChainID === BinanceChainID) {
         let OwnerCheckBNB = 0
-        const BalanceInContractBNB = await SHOMINcontractBNB.methods.balanceOf(passVar).encodeABI().call((err, result) => { console.log(result) })
+        const BalanceInContractBNB = await SHOMINcontractBNB.methods.balanceOf(passVar).encodeABI().call((result) => {
+          console.log(result)
+        })
         if (BalanceInContractBNB > 0) {
           OwnerCheckBNB = BalanceInContractBNB[0]
         }
