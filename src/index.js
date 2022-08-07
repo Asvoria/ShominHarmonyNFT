@@ -166,7 +166,7 @@ const runMetamask = () => {
       const passVar = `${_accounts[0]}`
       if (ChainID === HarmonyChainID) {
         let OwnerCheckONE = 0
-        const BalanceInContractONE = await SHOMINcontractONE.methods.balanceOf(passVar).call( function(result) {
+        const BalanceInContractONE = await SHOMINcontractONE.methods.balanceOf(passVar).call(function (result) {
           console.log(result)
         })
         console.log(BalanceInContractONE)
