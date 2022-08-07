@@ -164,6 +164,7 @@ const runMetamask = () => {
       const _accounts = await ethereum.request({
         method: 'eth_accounts',
       })
+      console.log(_accounts[0])
       const BalanceInContractONE = await SHOMINcontractONE.methods.balanceOf({ '_owner': _accounts[0] }).encodeABI().call()
       if (BalanceInContractONE === 0) {
         const BalanceInContractBNB = await SHOMINcontractBNB.methods.balanceOf({ '_owner': _accounts[0] }).encodeABI().call()
