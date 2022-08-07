@@ -93,10 +93,7 @@ const runMetamask = () => {
           console.log(result)
         })
         console.log(txO)
-        txO = await SHOMINcontractONE.methods._tokenIds().call()
-        console.log(txO)
         console.log(txO[0])
-        console.log(txO[1])
         buyBUTTONbONE.classList.add('hideclass')
         buyBUTTONbONE.classList.remove('is-visible')
         buyBUTTONbBNB.classList.add('hideclass')
@@ -117,18 +114,16 @@ const runMetamask = () => {
   const onClickBuyBNB = async () => {
     try {
       await ethereum.request({ method: 'eth_requestAccounts' })
-      console.log('Get Network ID: ')
       const ChainID = await ethereum.request({ method: 'net_version' })
-      console.log(ChainID)
 
-      if (ChainID === BinanceChainID) {
+      if (ChainID === HarmonyChainID) {
         const _accounts = await ethereum.request({
           method: 'eth_accounts',
         })
 
         const totalBNB = await totalPriceBNB * (10 ** 18)
         const txHash = await SHOMINcontractBNB.methods.buyMembership(strURLBNB).encodeABI()
-        const txO = await ethereum.request({
+        let txO = await ethereum.request({
           method: 'eth_sendTransaction',
           params: [{
             to: contractAddsBNB,
@@ -140,19 +135,18 @@ const runMetamask = () => {
           console.log('BNB chain response: ')
           console.log(result)
         })
-
         console.log(txO)
+        console.log(txO[0])
         buyBUTTONbONE.classList.add('hideclass')
         buyBUTTONbONE.classList.remove('is-visible')
         buyBUTTONbBNB.classList.add('hideclass')
         buyBUTTONbBNB.classList.remove('is-visible')
         AREAm.classList.remove('Error')
         AREAm.classList.add('Success')
-        AREAm.innerText = 'Thank You for your support!\nYou may add the NFT token to your Metamask Mobile Wallet with following informtion.\nContract Address: \nToken ID: '
+        AREAm.innerText = `Thank You for your support!\nYou may add the NFT token to your Metamask Mobile Wallet with following informtion.\nContract Address: ${contractAddsBNB}\nToken ID: ${txO}\nRefresh the page and connect to Metamask to view the secret contents!`
       } else {
         AREAm.classList.add('Error')
-        console.log('Error! Chain ID not match! Ask user to switch the network in wallet.')
-        AREAm.innerText = 'Your selected network on Metamask Wallet does not match! Please Select Smart Chain Mainnet.'
+        AREAm.innerText = `Your selected network on Metamask Wallet does not match! Please Select Harmony Shard 0 Mainnet.`
       }
     } catch (error) {
       console.error('error')
