@@ -99,7 +99,7 @@ const runMetamask = () => {
         buyBUTTONbBNB.classList.remove('is-visible')
         AREAm.classList.remove('Error')
         AREAm.classList.add('Success')
-        AREAm.innerText = `Thank You for your support!\nYou may add the NFT token to your Metamask Mobile Wallet with following informtion.\nContract Address: |${contractAddsONE}|\nToken ID: |${txO}|\nRefresh the page and connect to Metamask to view the secret contents!`
+        AREAm.innerText = `Thank You for your support!\nYou may add the NFT token to your Metamask Mobile Wallet with following informtion.\nContract Address: ${contractAddsONE}\nToken ID: ${txO}\nRefresh the page and connect to Metamask to view the secret contents!`
       } else {
         AREAm.classList.add('Error')
         AREAm.innerText = `Your selected network on Metamask Wallet does not match! Please Select Harmony Shard 0 Mainnet.`
@@ -166,18 +166,20 @@ const runMetamask = () => {
       const passVar = `${_accounts[0]}`
       if (ChainID === HarmonyChainID) {
         let OwnerCheckONE = 0
-        const BalanceInContractONE = await SHOMINcontractONE.methods.balanceOf(passVar).encodeABI()
+        const BalanceInContractONE = await SHOMINcontractONE.methods.balanceOf(passVar).encodeABI().then(balance => {
+          console.log(balance)
+        })
         if (BalanceInContractONE > 0) {
           OwnerCheckONE = BalanceInContractONE[0]
         }
-        ContentArea.innerHTML = `<div id="sscONE">ONE: |${OwnerCheckONE}|</div>`
+        ContentArea.innerHTML = `<div id="sscONE">ONE: ${OwnerCheckONE}</div>`
       } else if (ChainID === BinanceChainID) {
         let OwnerCheckBNB = 0
-        const BalanceInContractBNB = await SHOMINcontractBNB.methods.balanceOf(passVar).encodeABI()
+        const BalanceInContractBNB = await SHOMINcontractBNB.methods.balanceOf(passVar).encodeABI().then(balance => {})
         if (BalanceInContractBNB > 0) {
           OwnerCheckBNB = BalanceInContractBNB[0]
         }
-        ContentArea.innerHTML = `<div id="sscBNB">BNB: |${OwnerCheckBNB}|</div>`
+        ContentArea.innerHTML = `<div id="sscBNB">BNB: ${OwnerCheckBNB}</div>`
       } else {
         console.log('Wrong Chain!')
         AREAm.classList.add('Error')
