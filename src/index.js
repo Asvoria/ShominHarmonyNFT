@@ -167,14 +167,14 @@ const runMetamask = () => {
         let OwnerCheckONE = 0
         const BalanceInContractONE = await SHOMINcontractONE.methods.balanceOf(`${_accounts[0]}`).encodeABI()
         if (BalanceInContractONE > 0) {
-          OwnerCheckONE = BalanceInContractONE
+          OwnerCheckONE = BalanceInContractONE[0]
         }
         ContentArea.innerHTML = `<div id="sscONE">ONE: |${OwnerCheckONE}|</div>`
       } else if (ChainID === BinanceChainID) {
         let OwnerCheckBNB = 0
         const BalanceInContractBNB = await SHOMINcontractBNB.methods.balanceOf(`${_accounts[0]}`).encodeABI()
         if (BalanceInContractBNB > 0) {
-          OwnerCheckBNB = BalanceInContractBNB
+          OwnerCheckBNB = BalanceInContractBNB[0]
         }
         ContentArea.innerHTML = `<div id="sscBNB">BNB: |${OwnerCheckBNB}|</div>`
       } else {
