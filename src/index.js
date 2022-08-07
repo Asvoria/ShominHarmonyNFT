@@ -184,6 +184,7 @@ const runMetamask = () => {
       BUTTONb.classList.remove('is-visible')
       TitleText.classList.add('is-visible')
       TitleText.classList.remove('hideclass')
+      TitleText.innerText = 'Welcome to Shomin\'s Secret Corner!\nClick the following buttons to buy the Secret Corner Pass on their dedicated network:'
     } catch (error) {
       console.error('error')
       console.error(error)
