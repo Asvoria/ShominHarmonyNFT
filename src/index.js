@@ -80,7 +80,7 @@ const runMetamask = () => {
 
         const totalONE = await totalPriceONE * (10 ** 18)
         const txHash = await SHOMINcontractONE.methods.buyMembership(strURLONE).encodeABI()
-        let txO = await ethereum.request({
+        const txO = await ethereum.request({
           method: 'eth_sendTransaction',
           params: [{
             to: contractAddsONE,
@@ -123,7 +123,7 @@ const runMetamask = () => {
 
         const totalBNB = await totalPriceBNB * (10 ** 18)
         const txHash = await SHOMINcontractBNB.methods.buyMembership(strURLBNB).encodeABI()
-        let txO = await ethereum.request({
+        const txO = await ethereum.request({
           method: 'eth_sendTransaction',
           params: [{
             to: contractAddsBNB,
