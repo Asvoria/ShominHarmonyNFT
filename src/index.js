@@ -93,6 +93,8 @@ const runMetamask = () => {
         console.log(txO)
         txO = await SHOMINcontractONE.methods._tokenIds().call()
         console.log(txO)
+        console.log(txO[0])
+        console.log(txO[1])
         buyBUTTONbONE.classList.add('hideclass')
         buyBUTTONbONE.classList.remove('is-visible')
         buyBUTTONbBNB.classList.add('hideclass')
