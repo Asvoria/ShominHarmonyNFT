@@ -42,7 +42,7 @@ const ContentArea = document.getElementById('ContentArea')
 
 const Web3 = require('web3')
 
-const web3ONE = new Web3('https://explorer.ps.hmny.io/')
+const web3ONE = new Web3('https://api.s0.ps.hmny.io')
 const web3BNB = new Web3('https://bsc-dataseed.binance.org/')
 const HarmonyChainID = '1666900000'
 const BinanceChainID = '56'
