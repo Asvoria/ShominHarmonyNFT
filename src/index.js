@@ -170,6 +170,8 @@ const runMetamask = () => {
           OwnerCheckONE = BalanceInContractONE
         }
         ContentArea.innerHTML = `<div id="sscONE">ONE: ${OwnerCheckONE}</div>`
+        buyBUTTONbONE.classList.add('is-visible')
+        buyBUTTONbONE.classList.remove('hideclass')
       } else if (ChainID === BinanceChainID) {
         const BalanceInContractBNB = await SHOMINcontractBNB.methods.balanceOf(_accounts[0]).call()
         console.log(BalanceInContractBNB)
@@ -177,6 +179,8 @@ const runMetamask = () => {
           OwnerCheckBNB = BalanceInContractBNB[0]
         }
         ContentArea.innerHTML = `<div id="sscBNB">BNB: ${OwnerCheckBNB}</div>`
+        buyBUTTONbBNB.classList.add('is-visible')
+        buyBUTTONbBNB.classList.remove('hideclass')
       } else {
         console.log('Wrong Chain!')
         AREAm.classList.add('Error')
@@ -184,12 +188,10 @@ const runMetamask = () => {
       }
 
       if (OwnerCheckONE > 0) {
-        buyBUTTONbONE.classList.add('is-visible')
-        buyBUTTONbONE.classList.remove('hideclass')
+        console.log('Own Harmony NFT!')
       }
       if (OwnerCheckBNB > 0) {
-        buyBUTTONbBNB.classList.add('is-visible')
-        buyBUTTONbBNB.classList.remove('hideclass')
+        console.log('Own Binance NFT!')
       }
 
       BUTTONb.classList.add('hideclass')
