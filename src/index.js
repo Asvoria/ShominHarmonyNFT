@@ -163,16 +163,17 @@ const runMetamask = () => {
         method: 'eth_accounts',
       })
       const ChainID = await ethereum.request({ method: 'net_version' })
+      const passVar = `{"address owner": "|${_accounts[0]}|"}`
       if (ChainID === HarmonyChainID) {
         let OwnerCheckONE = 0
-        const BalanceInContractONE = await SHOMINcontractONE.methods.balanceOf(`${_accounts[0]}`).encodeABI()
+        const BalanceInContractONE = await SHOMINcontractONE.methods.balanceOf(passVar).encodeABI()
         if (BalanceInContractONE > 0) {
           OwnerCheckONE = BalanceInContractONE[0]
         }
         ContentArea.innerHTML = `<div id="sscONE">ONE: |${OwnerCheckONE}|</div>`
       } else if (ChainID === BinanceChainID) {
         let OwnerCheckBNB = 0
-        const BalanceInContractBNB = await SHOMINcontractBNB.methods.balanceOf(`${_accounts[0]}`).encodeABI()
+        const BalanceInContractBNB = await SHOMINcontractBNB.methods.balanceOf(passVar).encodeABI()
         if (BalanceInContractBNB > 0) {
           OwnerCheckBNB = BalanceInContractBNB[0]
         }
