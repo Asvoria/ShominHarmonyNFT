@@ -40,6 +40,7 @@ const BUTTONb = document.getElementById('BUTTONb')
 const buyBUTTONbONE = document.getElementById('buyBUTTONbONE')
 const buyBUTTONbBNB = document.getElementById('buyBUTTONbBNB')
 const AREAm = document.getElementById('MessageArea')
+const ContentArea = document.getElementById('ContentArea')
 
 const Web3 = require('web3')
 
@@ -104,9 +105,8 @@ const runMetamask = () => {
         buyBUTTONbBNB.classList.remove('is-visible')
         AREAm.classList.remove('Error')
         AREAm.classList.add('Success')
-        AREAm.innerText = `Thank You for your support!\nYou may add the NFT token to your Metamask Mobile Wallet with following informtion.\nContract Address: |${contractAddsONE}|\nToken ID: |${txO}|`
+        AREAm.innerText = `Thank You for your support!\nYou may add the NFT token to your Metamask Mobile Wallet with following informtion.\nContract Address: |${contractAddsONE}|\nToken ID: |${txO}|\nRefresh the page and connect to Metamask to view the secret contents!`
       } else {
-        console.log('Error! Chain ID not match! Ask user to switch the network in wallet.')
         AREAm.classList.add('Error')
         AREAm.innerText = `Your selected network on Metamask Wallet does not match! Please Select Harmony Shard 0 Mainnet.`
       }
@@ -168,7 +168,18 @@ const runMetamask = () => {
       const _accounts = await ethereum.request({
         method: 'eth_accounts',
       })
-      console.log(_accounts[0])
+      const BalanceInContractONE = await SHOMINcontractONE.methods.balanceOf({ '_owner': _accounts[0] }).encodeABI().call()
+      if (BalanceInContractONE === 0) {
+        const BalanceInContractBNB = await SHOMINcontractBNB.methods.balanceOf({ '_owner': _accounts[0] }).encodeABI().call()
+        if (BalanceInContractBNB === 0) {
+          console.log('No Token Found!')
+        } else {
+          ContentArea.innerHTML = '<div id="sscONE">No ONE</div><div id="sscBNB">BNB</div><div id="special-content-post"></div>';
+        }
+      } else {
+        ContentArea.innerHTML = '<div id="sscONE">ONE</div><div id="sscBNB">Not sure BNB</div><div id="special-content-post"></div>';
+      }
+
       buyBUTTONbONE.classList.add('is-visible')
       buyBUTTONbONE.classList.remove('hideclass')
       buyBUTTONbBNB.classList.add('is-visible')
