@@ -9,7 +9,8 @@ const SHOMIN_ABI = [{
 }, {
   'inputs': [{ 'internalType': 'string', 'name': 'newURI', 'type': 'string' }],
   'name': 'buyMembership',
-  'outputs': [],
+  'outputs': [{ 'internalType': 'uint256', 'name': '', 'type': 'uint256',
+  }],
   'stateMutability': 'payable',
   'type': 'function',
 }, {
