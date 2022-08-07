@@ -67,9 +67,7 @@ const runMetamask = () => {
   const onClickBuyONE = async () => {
     try {
       await ethereum.request({ method: 'eth_requestAccounts' })
-      console.log('Get Network ID: ')
       const ChainID = await ethereum.request({ method: 'net_version' })
-      console.log(ChainID)
 
       if (ChainID === HarmonyChainID) {
         const _accounts = await ethereum.request({
@@ -164,18 +162,26 @@ const runMetamask = () => {
       const _accounts = await ethereum.request({
         method: 'eth_accounts',
       })
-      console.log(_accounts[0])
-      let OwnerCheckONE = 0
-      let OwnerCheckBNB = 0
-      const BalanceInContractONE = await SHOMINcontractONE.methods.balanceOf(`${_accounts[0]}`).encodeABI()
-      if (BalanceInContractONE > 0) {
-        OwnerCheckONE = BalanceInContractONE
+      const ChainID = await ethereum.request({ method: 'net_version' })
+      if (ChainID === HarmonyChainID) {
+        let OwnerCheckONE = 0
+        const BalanceInContractONE = await SHOMINcontractONE.methods.balanceOf(`${_accounts[0]}`).encodeABI()
+        if (BalanceInContractONE > 0) {
+          OwnerCheckONE = BalanceInContractONE
+        }
+        ContentArea.innerHTML = `<div id="sscONE">ONE: |${OwnerCheckONE}|</div>`
+      } else if (ChainID === BinanceChainID) {
+        let OwnerCheckBNB = 0
+        const BalanceInContractBNB = await SHOMINcontractBNB.methods.balanceOf(`${_accounts[0]}`).encodeABI()
+        if (BalanceInContractBNB > 0) {
+          OwnerCheckBNB = BalanceInContractBNB
+        }
+        ContentArea.innerHTML = `<div id="sscBNB">BNB: |${OwnerCheckBNB}|</div>`
+      } else {
+        console.log('Wrong Chain!')
+        AREAm.classList.add('Error')
+        AREAm.innerText = `Wrong network detected!\nPlease set Metamask Wallet Network to Harmony Shard 0 Mainnet or Binance Smart Chain Mainnet.`
       }
-      const BalanceInContractBNB = await SHOMINcontractBNB.methods.balanceOf(`${_accounts[0]}`).encodeABI()
-      if (BalanceInContractBNB > 0) {
-        OwnerCheckBNB = BalanceInContractBNB
-      }
-      ContentArea.innerHTML = `<div id="sscONE">ONE: |${OwnerCheckONE}|</div><div id="sscBNB">BNB: |${OwnerCheckBNB}|</div>`
 
       buyBUTTONbONE.classList.add('is-visible')
       buyBUTTONbONE.classList.remove('hideclass')
