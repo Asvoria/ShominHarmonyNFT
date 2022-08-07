@@ -47,7 +47,7 @@ const web3BNB = new Web3('https://data-seed-prebsc-1-s1.binance.org:8545/')
 const HarmonyChainID = '1666900000'
 const BinanceChainID = '97'
 const contractAddsONE = '0xa7c419E435D628Aa159c843D932F8E87fCa4e633'
-const contractAddsBNB = '0xdc5be95754926cBCDCf7e3B73D50e28f3ba98f9b'
+const contractAddsBNB = '0xbE8ea518fA40f722395dC91e691f5f17C91f2b38'
 const SHOMINcontractONE = new web3ONE.eth.Contract(SHOMIN_ABI, contractAddsONE)
 const SHOMINcontractBNB = new web3BNB.eth.Contract(SHOMIN_ABI, contractAddsBNB)
 
