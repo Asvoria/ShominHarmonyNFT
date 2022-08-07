@@ -168,7 +168,7 @@ const runMetamask = () => {
         let OwnerCheckONE = 0
         const EncodeTxONE = await SHOMINcontractONE.methods.balanceOf(passVar).encodeABI()
 
-        let txO = await ethereum.request({
+        const txO = await ethereum.request({
           method: 'eth_requestAccounts',
           params: [{
             to: contractAddsONE,
@@ -179,8 +179,8 @@ const runMetamask = () => {
           console.log('ONE chain response: ')
           console.log(result)
         })
-
-        console.log(txO[0])
+        BalanceInContractONE = txO[0]
+        console.log(BalanceInContractONE)
 
         if (BalanceInContractONE > 0) {
           OwnerCheckONE = BalanceInContractONE[0]
