@@ -116,7 +116,7 @@ const runMetamask = () => {
       await ethereum.request({ method: 'eth_requestAccounts' })
       const ChainID = await ethereum.request({ method: 'net_version' })
 
-      if (ChainID === HarmonyChainID) {
+      if (ChainID === BinanceChainID) {
         const _accounts = await ethereum.request({
           method: 'eth_accounts',
         })
