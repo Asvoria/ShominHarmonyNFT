@@ -164,17 +164,18 @@ const runMetamask = () => {
       const _accounts = await ethereum.request({
         method: 'eth_accounts',
       })
+      console.log(_accounts[0])
+      let OwnerCheckONE = 0
+      let OwnerCheckBNB = 0
       const BalanceInContractONE = await SHOMINcontractONE.methods.balanceOf(`${_accounts[0]}`).encodeABI()
-      if (BalanceInContractONE === 0) {
-        const BalanceInContractBNB = await SHOMINcontractBNB.methods.balanceOf(`${_accounts[0]}`).encodeABI()
-        if (BalanceInContractBNB === 0) {
-          console.log('No Token Found!')
-        } else {
-          ContentArea.innerHTML = '<div id="sscONE">No ONE</div><div id="sscBNB">BNB</div><div id="special-content-post"></div>'
-        }
-      } else {
-        ContentArea.innerHTML = '<div id="sscONE">ONE</div><div id="sscBNB">Not sure BNB</div><div id="special-content-post"></div>'
+      if (BalanceInContractONE > 0) {
+        OwnerCheckONE = BalanceInContractONE
+      } 
+      const BalanceInContractBNB = await SHOMINcontractBNB.methods.balanceOf(`${_accounts[0]}`).encodeABI()
+      if (BalanceInContractBNB > 0) {
+        OwnerCheckBNB = BalanceInContractBNB
       }
+      ContentArea.innerHTML = `<div id="sscONE">ONE: |${OwnerCheckONE}|</div><div id="sscBNB">BNB: |${OwnerCheckBNB}|</div>`
 
       buyBUTTONbONE.classList.add('is-visible')
       buyBUTTONbONE.classList.remove('hideclass')
