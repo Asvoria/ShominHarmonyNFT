@@ -166,18 +166,9 @@ const runMetamask = () => {
       const passVar = `${_accounts[0]}`
       if (ChainID === HarmonyChainID) {
         let OwnerCheckONE = 0
-        const EncodeTxONE = await SHOMINcontractONE.methods.balanceOf(passVar).encodeABI()
-        console.log(EncodeTxONE)
-        const txO = await SHOMINcontractONE.functions.call({
-          method: 'balanceOf',
-          params: [{
-            address: passVar,
-          }],
-        }).then((result) => {
-          console.log('ONE chain response: ')
+        const BalanceInContractONE = await SHOMINcontractONE.methods.balanceOf(passVar).call((result) => {
           console.log(result)
         })
-        const BalanceInContractONE = txO[0]
         console.log(BalanceInContractONE)
 
         if (BalanceInContractONE > 0) {
