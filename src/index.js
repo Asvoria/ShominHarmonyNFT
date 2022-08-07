@@ -22,7 +22,7 @@ const SHOMIN_ABI = [{
   'type': 'function',
 }, {
   'inputs': [{ 'internalType': 'address', 'name': 'owner', 'type': 'address' }],
-  'name': 'balanceOf',
+  'name': 'checkBal',
   'outputs': [{ 'internalType': 'uint256', 'name': '', 'type': 'uint256' }],
   'stateMutability': 'view',
   'type': 'function',
@@ -38,11 +38,11 @@ const ContentArea = document.getElementById('ContentArea')
 
 const Web3 = require('web3')
 
-const web3ONE = new Web3('https://api.harmony.one')
+const web3ONE = new Web3('https://explorer.ps.hmny.io/')
 const web3BNB = new Web3('https://bsc-dataseed.binance.org/')
-const HarmonyChainID = '1666600000'
+const HarmonyChainID = '1666900000'
 const BinanceChainID = '56'
-const contractAddsONE = '0x0F10823132B05F5B18751414E3FA164b4d0Dfa38'
+const contractAddsONE = '0xed87De35679B30668EE7142e1a16585c30c7fF03'
 const contractAddsBNB = '0x0F10823132B05F5B18751414E3FA164b4d0Dfa38'
 const SHOMINcontractONE = new web3ONE.eth.Contract(SHOMIN_ABI, contractAddsONE)
 const SHOMINcontractBNB = new web3BNB.eth.Contract(SHOMIN_ABI, contractAddsBNB)
