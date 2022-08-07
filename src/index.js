@@ -168,10 +168,11 @@ const runMetamask = () => {
         let OwnerCheckONE = 0
         const BalanceInContractONE = await SHOMINcontractONE.methods.balanceOf(passVar).encodeABI().call().then((balance) => {
           console.log(balance)
+          if (BalanceInContractONE > 0) {
+            OwnerCheckONE = BalanceInContractONE[0]
+          }
         })
-        if (BalanceInContractONE > 0) {
-          OwnerCheckONE = BalanceInContractONE[0]
-        }
+        
         ContentArea.innerHTML = `<div id="sscONE">ONE: ${OwnerCheckONE}</div>`
       } else if (ChainID === BinanceChainID) {
         let OwnerCheckBNB = 0
