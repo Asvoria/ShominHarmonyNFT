@@ -131,12 +131,8 @@ const runMetamask = () => {
             value: web3BNB.utils.toHex(totalBNB),
             data: txHash,
           }],
-        }).then((result) => {
-          console.log('BNB chain response: ')
-          console.log(result)
         })
         console.log(txO)
-        console.log(txO[0])
         buyBUTTONbONE.classList.add('hideclass')
         buyBUTTONbONE.classList.remove('is-visible')
         buyBUTTONbBNB.classList.add('hideclass')
