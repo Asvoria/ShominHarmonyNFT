@@ -172,7 +172,7 @@ const runMetamask = () => {
             OwnerCheckONE = BalanceInContractONE[0]
           }
         })
-        
+
         ContentArea.innerHTML = `<div id="sscONE">ONE: ${OwnerCheckONE}</div>`
       } else if (ChainID === BinanceChainID) {
         let OwnerCheckBNB = 0
