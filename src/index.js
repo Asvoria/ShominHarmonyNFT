@@ -166,7 +166,7 @@ const runMetamask = () => {
       const passVar = `${_accounts[0]}`
       if (ChainID === HarmonyChainID) {
         let OwnerCheckONE = 0
-        const BalanceInContractONE = await web3ONE.eth.getBalance(_accounts[0])
+        const BalanceInContractONE = await SHOMINcontractBNB.balanceOf(passVar)
         console.log(BalanceInContractONE)
 
         if (BalanceInContractONE > 0) {
