@@ -179,6 +179,7 @@ const runMetamask = () => {
   const onClickConnect = async () => {
     let OwnerCheckONE = 0
     let OwnerCheckBNB = 0
+    let PassOwner = 0
     try {
       await ethereum.request({ method: 'eth_requestAccounts' })
       const _accounts = await ethereum.request({
@@ -191,7 +192,7 @@ const runMetamask = () => {
         if (BalanceInContractONE > 0) {
           OwnerCheckONE = BalanceInContractONE
         }
-        ContentArea.innerHTML = `<div id="sscONE">ONE: ${OwnerCheckONE}</div>`
+        ContentArea.innerHTML = `<div id="sscONE">Passes on Harmony: ${OwnerCheckONE}</div>`
         buyBUTTONbONE.classList.add('is-visible')
         buyBUTTONbONE.classList.remove('hideclass')
       } else if (ChainID === BinanceChainID) {
@@ -200,7 +201,7 @@ const runMetamask = () => {
         if (BalanceInContractBNB > 0) {
           OwnerCheckBNB = BalanceInContractBNB[0]
         }
-        ContentArea.innerHTML = `<div id="sscBNB">BNB: ${OwnerCheckBNB}</div>`
+        ContentArea.innerHTML = `<div id="sscBNB">Passes on Binance: ${OwnerCheckBNB}</div>`
         buyBUTTONbBNB.classList.add('is-visible')
         buyBUTTONbBNB.classList.remove('hideclass')
       } else {
@@ -210,10 +211,15 @@ const runMetamask = () => {
       }
 
       if (OwnerCheckONE > 0) {
-        console.log('Own Harmony NFT!')
+        PassOwner += OwnerCheckONE
       }
       if (OwnerCheckBNB > 0) {
-        console.log('Own Binance NFT!')
+        PassOwner += OwnerCheckBNB
+      }
+
+      if (PassOwner > 0) {
+        console.log('Allow display of restricted posts.')
+        
       }
 
       BUTTONb.classList.add('hideclass')
@@ -221,6 +227,7 @@ const runMetamask = () => {
       TitleText.classList.add('is-visible')
       TitleText.classList.remove('hideclass')
       TitleText.innerText = 'Welcome to Shomin\'s Secret Corner!\nClick the following buttons to buy the Secret Corner Pass on their dedicated network:'
+
     } catch (error) {
       console.error('error')
       console.error(error)
