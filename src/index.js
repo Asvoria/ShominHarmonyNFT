@@ -219,7 +219,7 @@ const runMetamask = () => {
 
       if (PassOwner > 0) {
         console.log('Allow display of restricted posts.')
-        AREAm.innerText = `Thank You for your support!\nYou may add the NFT token to your Metamask Mobile Wallet with following informtion.\nContract Address: ${contractAddsBNB}\nToken ID: ${txO}\nRefresh the page and connect to Metamask to view the secret contents!`
+        AREAm.innerText = 'Welcome to Shomin\'s Secret Corner!'
         ContentArea.innerHTML += '[[[http://codepen.io/chriscoyier/pen/zDGkw]]]'
       }
 
