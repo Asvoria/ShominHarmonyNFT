@@ -219,7 +219,6 @@ const runMetamask = () => {
 
       if (PassOwner > 0) {
         console.log('Allow display of restricted posts.')
-        
       }
 
       BUTTONb.classList.add('hideclass')
