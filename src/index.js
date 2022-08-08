@@ -220,7 +220,7 @@ const runMetamask = () => {
       if (PassOwner > 0) {
         console.log('Allow display of restricted posts.')
         AREAm.innerText = 'Welcome to Shomin\'s Secret Corner!'
-        ContentArea.innerHTML += '[[[http://codepen.io/chriscoyier/pen/zDGkw]]]'
+        ContentArea.innerHTML += '<object type="text/html" data="https://example.com/"></object>'
       }
 
       BUTTONb.classList.add('hideclass')
