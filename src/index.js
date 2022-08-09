@@ -9,7 +9,7 @@ const SHOMIN_ABI = [{
 }, {
   'inputs': [{ 'internalType': 'string', 'name': 'newURI', 'type': 'string' }],
   'name': 'buyMembership',
-  'outputs': [{ 'internalType': 'uint256', 'name': '', 'type': 'uint256' }],
+  'outputs': [],
   'stateMutability': 'payable',
   'type': 'function',
 }, {
@@ -57,6 +57,20 @@ const SHOMIN_ABI = [{
   ],
   'name': 'Transfer',
   'type': 'event',
+}]
+
+
+
+
+const typesArray = [{
+  'from': 'address',
+  'topic': 'uint256',
+  'event': 'string',
+  'args': {
+    'from': 'address',
+    'to': 'address',
+    'tokenId': 'uint256',
+  }
 }]
 
 const TitleText = document.getElementById('Title')
@@ -118,9 +132,11 @@ const runMetamask = () => {
         }).then((result) => {
           console.log('ONE chain response: ')
           console.log(result)
-          console.log(result[1])
-          console.log(result[2])
         })
+        const web3Decode = new Web3();
+        const decodedParameters = await web3Decode.eth.abi.decodeParameters(typesArray, txO);
+
+        console.log(JSON.stringify(decodedParameters, null, 4));
 
         buyBUTTONbONE.classList.add('hideclass')
         buyBUTTONbONE.classList.remove('is-visible')
