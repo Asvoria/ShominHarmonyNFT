@@ -119,7 +119,7 @@ const runMetamask = () => {
           console.log('ONE chain response: ')
           console.log(result)
         })
-        const decodedParameters = await SHOMINcontractONE.eth.getTransaction(txO).then(console.log)
+        const decodedParameters = await web3ONE.eth.getTransaction(txO).then(console.log)
         console.log(decodedParameters[1])
         buyBUTTONbONE.classList.add('hideclass')
         buyBUTTONbONE.classList.remove('is-visible')
