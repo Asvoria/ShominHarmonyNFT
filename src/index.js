@@ -221,7 +221,7 @@ const runMetamask = () => {
         console.log('Allow display of restricted posts.')
         TitleText.innerText = 'Welcome Back!\nYou may still be able to purchase more passes.'
         AREAm.innerText = 'Thank you for your support! You are truely an amazing supporter!'
-        ContentArea.innerHTML += '<object type="text/html" data="https://asvoria.github.io/Author/bundled/display.html"></object>'
+        ContentArea.innerHTML += '<object style="display: flex; width: 100%;" type="text/html" data="https://asvoria.github.io/Author/bundled/display.html"></object>'
       }
 
       BUTTONb.classList.add('hideclass')
