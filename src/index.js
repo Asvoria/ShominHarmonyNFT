@@ -120,7 +120,7 @@ const runMetamask = () => {
           console.log(result)
         })
         const decodedParameters = await SHOMINcontractONE.eth.getTransaction(txO).then(console.log)
-
+        console.log(decodedParameters[1])
         buyBUTTONbONE.classList.add('hideclass')
         buyBUTTONbONE.classList.remove('is-visible')
         buyBUTTONbBNB.classList.add('hideclass')
