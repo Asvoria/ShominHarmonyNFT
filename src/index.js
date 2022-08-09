@@ -119,7 +119,6 @@ const runMetamask = () => {
           console.log('ONE chain response: ')
           console.log(tokenId)
         })
-        console.log(txO)
         buyBUTTONbONE.classList.add('hideclass')
         buyBUTTONbONE.classList.remove('is-visible')
         buyBUTTONbBNB.classList.add('hideclass')
@@ -208,6 +207,7 @@ const runMetamask = () => {
         console.log('Wrong Chain!')
         AREAm.classList.add('Error')
         AREAm.innerText = `Wrong network detected!\nPlease set Metamask Network to Harmony Shard 0 Mainnet or Binance Smart Chain Mainnet.`
+        TitleText.innerText = 'Please change to the correct Metamask network and then refresh the page.'
       }
 
       if (OwnerCheckONE > 0) {
