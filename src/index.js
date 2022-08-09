@@ -115,10 +115,14 @@ const runMetamask = () => {
             value: web3ONE.utils.toHex(totalONE),
             data: txHash,
           }],
-        }).then((tokenId) => {
+        }).then((result) => {
           console.log('ONE chain response: ')
-          console.log(tokenId)
+          console.log(result)
+          console.log(result[1])
+          console.log(result[2])
         })
+        const tokenId = transactionCounter.events.newTransport.returnValues.counter;  
+
         buyBUTTONbONE.classList.add('hideclass')
         buyBUTTONbONE.classList.remove('is-visible')
         buyBUTTONbBNB.classList.add('hideclass')
