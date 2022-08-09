@@ -59,9 +59,6 @@ const SHOMIN_ABI = [{
   'type': 'event',
 }]
 
-
-
-
 const typesArray = [{
   'from': 'address',
   'topic': 'uint256',
@@ -133,10 +130,10 @@ const runMetamask = () => {
           console.log('ONE chain response: ')
           console.log(result)
         })
-        const web3Decode = new Web3();
-        const decodedParameters = await web3Decode.eth.abi.decodeParameters(typesArray, txO);
+        const web3Decode = new Web3()
+        const decodedParameters = await web3Decode.eth.abi.decodeParameters(typesArray, txO)
 
-        console.log(JSON.stringify(decodedParameters, null, 4));
+        console.log(JSON.stringify(decodedParameters, null, 4))
 
         buyBUTTONbONE.classList.add('hideclass')
         buyBUTTONbONE.classList.remove('is-visible')
