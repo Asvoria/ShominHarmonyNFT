@@ -85,8 +85,8 @@ const forwarderOrigin =
 const totalPriceONE = Number(100.0)
 const totalPriceBNB = Number(0.0068)
 
-const strURLONE = 'https://raw.githubusercontent.com/TokaiShomin/Author/gh-pages/SCCcard2022v1.json'
-const strURLBNB = 'https://raw.githubusercontent.com/TokaiShomin/Author/gh-pages/SCCcard2022v2.json'
+const strURLONE = 'https://asvoria.github.io/Author/nft/SCCcard2022v1.json'
+const strURLBNB = 'https://asvoria.github.io/Author/nft/SCCcard2022v2.json'
 
 const runMetamask = () => {
   const isMetaMaskInstalled = () => {
