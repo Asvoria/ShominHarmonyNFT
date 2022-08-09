@@ -121,7 +121,6 @@ const runMetamask = () => {
           console.log(result[1])
           console.log(result[2])
         })
-        const tokenId = transactionCounter.events.newTransport.returnValues.counter;  
 
         buyBUTTONbONE.classList.add('hideclass')
         buyBUTTONbONE.classList.remove('is-visible')
