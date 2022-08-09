@@ -67,7 +67,7 @@ const typesArray = [{
     'from': 'address',
     'to': 'address',
     'tokenId': 'uint256',
-  }
+  },
 }]
 
 const TitleText = document.getElementById('Title')
