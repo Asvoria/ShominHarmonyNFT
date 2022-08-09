@@ -219,8 +219,9 @@ const runMetamask = () => {
 
       if (PassOwner > 0) {
         console.log('Allow display of restricted posts.')
-        AREAm.innerText = 'Welcome to Shomin\'s Secret Corner!'
-        ContentArea.innerHTML += '<object type="text/html" data="https://example.com/"></object>'
+        TitleText.innerText = 'Welcome Back!\nYou may still be able to purchase more passes.'
+        AREAm.innerText = 'Thank you for your support! You are truely an amazing supporter!'
+        ContentArea.innerHTML += '<object type="text/html" data="https://asvoria.github.io/Author/bundled/display.html"></object>'
       }
 
       BUTTONb.classList.add('hideclass')
