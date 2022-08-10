@@ -127,15 +127,19 @@ const runMetamask = () => {
         })
         console.log(txlog)
         await sleep(600)
+        let getRxLog = ''
         for (let i = 0; i < 5; i++) {
           console.log('waiting...')
-          await web3ONE.eth.getTransactionReceipt(txlog).then(console.log)
+          getRxLog = await web3ONE.eth.getTransactionReceipt(txlog).then(console.log)
+          if (getRxLog) {
+            console.log('rx not null...')
+            break
+          }
           await sleep(600)
         }
-        const decodedParameters = await web3ONE.eth.getTransactionReceipt(txlog).then(console.log)
 
-        console.log(decodedParameters[0].topics[3])
-        const idOnly = await web3ONE.utils.hexToNumber(decodedParameters[0].topics[3])
+        console.log(getRxLog[0].topics[3])
+        const idOnly = await web3ONE.utils.hexToNumber(getRxLog[0].topics[3])
         console.log(idOnly)
         buyBUTTONbONE.classList.add('hideclass')
         buyBUTTONbONE.classList.remove('is-visible')
