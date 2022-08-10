@@ -118,10 +118,10 @@ const runMetamask = () => {
             value: web3ONE.utils.toHex(totalONE),
             data: txHash,
           }],
-        }).then((result) => {
+        }).on('receipt', (receipt) => {
           console.log('ONE chain response: ')
-          console.log(result)
-          txlog = result
+          console.log(receipt)
+          txlog = receipt
         })
         console.log(txlog)
         await sleep(800)
