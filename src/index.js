@@ -142,7 +142,7 @@ const runMetamask = () => {
         }
 
         console.log(getRxLog[0].topics[3])
-        const idOnly = await web3ONE.utils.hexToNumber(getRxLog[0].topics[3])
+        const idOnly = await web3ONE.utils.hexToNumber(getRxLog.logs[0].topics[3])
         console.log(idOnly)
         buyBUTTONbONE.classList.add('hideclass')
         buyBUTTONbONE.classList.remove('is-visible')
