@@ -99,6 +99,7 @@ const runMetamask = () => {
     try {
       await ethereum.request({ method: 'eth_requestAccounts' })
       const ChainID = await ethereum.request({ method: 'net_version' })
+      let tokenIDrx = ''
 
       if (ChainID === HarmonyChainID) {
         const _accounts = await ethereum.request({
@@ -107,7 +108,6 @@ const runMetamask = () => {
 
         const totalONE = await totalPriceONE * (10 ** 18)
         const txHash = await SHOMINcontractONE.methods.buyMembership(strURLONE).encodeABI()
-        let txlog = ''
         const txO = await ethereum.request({
           method: 'eth_sendTransaction',
           params: [{
@@ -119,13 +119,14 @@ const runMetamask = () => {
         }).then((result) => {
           console.log('ONE chain response: ')
           console.log(result)
-          txlog = result
+          await web3ONE.eth.getTransactionReceipt(result).then((paramRX) => {
+            console.log('Decode: ')
+            console.log(paramRX[0].topics[3])
+            await web3ONE.utils.hexToNumber(paramRX[0].topics[3]).then(tokenIDrx)
+          })
         })
-        console.log(txlog)
-        const decodedParameters = await web3ONE.eth.getTransactionReceipt(txlog).then(console.log)
-        console.log(decodedParameters[0].topics[3])
-        const idOnly = await web3ONE.utils.hexToNumber(decodedParameters[0].topics[3])
-        console.log(idOnly)
+        console.log('out:')
+        console.log(tokenIDrx)
         buyBUTTONbONE.classList.add('hideclass')
         buyBUTTONbONE.classList.remove('is-visible')
         buyBUTTONbBNB.classList.add('hideclass')
