@@ -1,4 +1,5 @@
 import MetaMaskOnboarding from '@metamask/onboarding'
+import { SingleEntryPlugin } from 'webpack'
 
 const SHOMIN_ABI = [{
   'inputs': [{ 'internalType': 'address', 'name': 'owner', 'type': 'address' }],
@@ -100,6 +101,7 @@ const runMetamask = () => {
       await ethereum.request({ method: 'eth_requestAccounts' })
       const ChainID = await ethereum.request({ method: 'net_version' })
       let tokenIDrx = ''
+      let txlog = ''
 
       if (ChainID === HarmonyChainID) {
         const _accounts = await ethereum.request({
@@ -119,13 +121,14 @@ const runMetamask = () => {
         }).then((result) => {
           console.log('ONE chain response: ')
           console.log(result)
-          await web3ONE.eth.getTransactionReceipt(result).then((paramRX) => {
-            console.log('Decode: ')
-            console.log(paramRX[0].topics[3])
-            await web3ONE.utils.hexToNumber(paramRX[0].topics[3]).then(tokenIDrx)
-          })
+          txlog = result
         })
-        console.log('out:')
+        console.log(txlog)
+        const decodedParameters = await web3ONE.eth.getTransactionReceipt(txlog).then(console.log)
+        await sleep(1)
+        console.log(decodedParameters[0].topics[3])
+        const idOnly = await web3ONE.utils.hexToNumber(decodedParameters[0].topics[3])
+        console.log(idOnly)
         console.log(tokenIDrx)
         buyBUTTONbONE.classList.add('hideclass')
         buyBUTTONbONE.classList.remove('is-visible')
