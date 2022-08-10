@@ -131,8 +131,9 @@ const runMetamask = () => {
         for (let i = 0; i < 5; i++) {
           console.log('waiting...')
           getRxLog = await web3ONE.eth.getTransactionReceipt(txlog)
+          await sleep(100)
           console.log(getRxLog)
-          console.log(getRxLog[0].topics[3])
+          console.log(getRxLog.logs[0].topics[3])
           if (getRxLog) {
             console.log('rx not null...')
             break
