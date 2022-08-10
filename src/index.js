@@ -125,6 +125,7 @@ const runMetamask = () => {
         }).catch((error) => {
           console.log(error)
         })
+        console.log(txO)
         console.log(txlog)
         await sleep(600)
         let getRxLog = ''
