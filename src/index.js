@@ -125,7 +125,7 @@ const runMetamask = () => {
         })
         console.log(txlog)
         const decodedParameters = await web3ONE.eth.getTransactionReceipt(txlog).then(console.log)
-        await sleep(1)
+        await sleep(800)
         console.log(decodedParameters[0].topics[3])
         const idOnly = await web3ONE.utils.hexToNumber(decodedParameters[0].topics[3])
         console.log(idOnly)
