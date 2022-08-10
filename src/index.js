@@ -118,15 +118,22 @@ const runMetamask = () => {
             value: web3ONE.utils.toHex(totalONE),
             data: txHash,
           }],
-        }).on('receipt', (receipt) => {
+        }).then((result) => {
           console.log('ONE chain response: ')
-          console.log(receipt)
-          txlog = receipt
+          console.log(result)
+          txlog = result
+        }).catch((error) => {
+          console.log(error)
         })
         console.log(txlog)
-        await sleep(800)
+        await sleep(600)
+        for (let i = 0; i< 5; i++) {
+          console.log('waiting...')
+          await web3ONE.eth.getTransactionReceipt(txlog).then(console.log)
+          await sleep(600)
+        }
         const decodedParameters = await web3ONE.eth.getTransactionReceipt(txlog).then(console.log)
-        await sleep(800)
+
         console.log(decodedParameters[0].topics[3])
         const idOnly = await web3ONE.utils.hexToNumber(decodedParameters[0].topics[3])
         console.log(idOnly)
