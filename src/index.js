@@ -124,6 +124,7 @@ const runMetamask = () => {
           txlog = result
         })
         console.log(txlog)
+        await sleep(800)
         const decodedParameters = await web3ONE.eth.getTransactionReceipt(txlog).then(console.log)
         await sleep(800)
         console.log(decodedParameters[0].topics[3])
