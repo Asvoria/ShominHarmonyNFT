@@ -127,7 +127,7 @@ const runMetamask = () => {
         })
         console.log(txlog)
         await sleep(600)
-        for (let i = 0; i< 5; i++) {
+        for (let i = 0; i < 5; i++) {
           console.log('waiting...')
           await web3ONE.eth.getTransactionReceipt(txlog).then(console.log)
           await sleep(600)
