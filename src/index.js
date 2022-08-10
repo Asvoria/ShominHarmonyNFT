@@ -107,6 +107,7 @@ const runMetamask = () => {
 
         const totalONE = await totalPriceONE * (10 ** 18)
         const txHash = await SHOMINcontractONE.methods.buyMembership(strURLONE).encodeABI()
+        let txlog = ''
         const txO = await ethereum.request({
           method: 'eth_sendTransaction',
           params: [{
@@ -118,9 +119,11 @@ const runMetamask = () => {
         }).then((result) => {
           console.log('ONE chain response: ')
           console.log(result)
+          txlog = result
         })
         console.log(txO)
-        const decodedParameters = await web3ONE.eth.getTransactionReceipt(txO).then(console.log)
+        console.log(txlog)
+        const decodedParameters = await web3ONE.eth.getTransactionReceipt(txlog).then(console.log)
         console.log(decodedParameters)
         buyBUTTONbONE.classList.add('hideclass')
         buyBUTTONbONE.classList.remove('is-visible')
