@@ -164,6 +164,7 @@ const runMetamask = () => {
     try {
       await ethereum.request({ method: 'eth_requestAccounts' })
       const ChainID = await ethereum.request({ method: 'net_version' })
+      let txlog = ''
 
       if (ChainID === BinanceChainID) {
         const _accounts = await ethereum.request({
@@ -180,15 +181,38 @@ const runMetamask = () => {
             value: web3BNB.utils.toHex(totalBNB),
             data: txHash,
           }],
+        }).then((result) => {
+          console.log('BNB chain response: ')
+          console.log(result)
+          txlog = result
+        }).catch((error) => {
+          console.log(error)
         })
         console.log(txO)
-        buyBUTTONbONE.classList.add('hideclass')
-        buyBUTTONbONE.classList.remove('is-visible')
+        console.log(txlog)
+        await sleep(600)
+        let getRxLog = ''
+        for (let i = 0; i < 5; i++) {
+          console.log('waiting...')
+          getRxLog = await web3BNB.eth.getTransactionReceipt(txlog)
+          await sleep(100)
+          if (getRxLog) {
+            console.log('rx not null...')
+            break
+          }
+          await sleep(600)
+        }
+
+        console.log(getRxLog.logs[0].topics[3])
+        const idOnly = await web3BNB.utils.hexToNumber(getRxLog.logs[0].topics[3])
+        console.log(idOnly)
+        buyBUTTONbBNB.classList.add('hideclass')
+        buyBUTTONbBNB.classList.remove('is-visible')
         buyBUTTONbBNB.classList.add('hideclass')
         buyBUTTONbBNB.classList.remove('is-visible')
         AREAm.classList.remove('Error')
         AREAm.classList.add('Success')
-        AREAm.innerText = `Thank You for your support!\nYou may add the NFT token to your Metamask Mobile Wallet with following informtion.\nContract Address: ${contractAddsBNB}\nToken ID: ${txO}\nRefresh the page and connect to Metamask to view the secret contents!`
+        AREAm.innerText = `Thank You for your support!\nYou may add the NFT token to your Metamask Mobile Wallet with following informtion.\nContract Address: ${contractAddsONE}\nToken ID: ${idOnly}\nRefresh the page and connect to Metamask to view the secret contents!`
       } else {
         AREAm.classList.add('Error')
         AREAm.innerText = `Your selected network on Metamask Wallet does not match! Please Select Binance Smart Chain Mainnet.`
