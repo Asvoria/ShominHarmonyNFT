@@ -133,8 +133,6 @@ const runMetamask = () => {
           console.log('waiting...')
           getRxLog = await web3ONE.eth.getTransactionReceipt(txlog)
           await sleep(100)
-          console.log(getRxLog)
-          console.log(getRxLog.logs[0].topics[3])
           if (getRxLog) {
             console.log('rx not null...')
             break
@@ -142,7 +140,7 @@ const runMetamask = () => {
           await sleep(600)
         }
 
-        console.log(getRxLog[0].topics[3])
+        console.log(getRxLog.logs[0].topics[3])
         const idOnly = await web3ONE.utils.hexToNumber(getRxLog.logs[0].topics[3])
         console.log(idOnly)
         buyBUTTONbONE.classList.add('hideclass')
