@@ -1,5 +1,4 @@
 import MetaMaskOnboarding from '@metamask/onboarding'
-import { SingleEntryPlugin } from 'webpack'
 
 const SHOMIN_ABI = [{
   'inputs': [{ 'internalType': 'address', 'name': 'owner', 'type': 'address' }],
@@ -60,6 +59,8 @@ const SHOMIN_ABI = [{
   'type': 'event',
 }]
 
+const sleep = ms => new Promise(res => setTimeout(res, ms));
+
 const TitleText = document.getElementById('Title')
 const BUTTON = document.getElementById('BUTTON')
 const BUTTONb = document.getElementById('BUTTONb')
@@ -100,7 +101,6 @@ const runMetamask = () => {
     try {
       await ethereum.request({ method: 'eth_requestAccounts' })
       const ChainID = await ethereum.request({ method: 'net_version' })
-      let tokenIDrx = ''
       let txlog = ''
 
       if (ChainID === HarmonyChainID) {
@@ -129,7 +129,6 @@ const runMetamask = () => {
         console.log(decodedParameters[0].topics[3])
         const idOnly = await web3ONE.utils.hexToNumber(decodedParameters[0].topics[3])
         console.log(idOnly)
-        console.log(tokenIDrx)
         buyBUTTONbONE.classList.add('hideclass')
         buyBUTTONbONE.classList.remove('is-visible')
         buyBUTTONbBNB.classList.add('hideclass')
