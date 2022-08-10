@@ -59,7 +59,7 @@ const SHOMIN_ABI = [{
   'type': 'event',
 }]
 
-const sleep = (ms) => new Promise(res => setTimeout(res, ms))
+const sleep = (ms) => new Promise((res) => setTimeout(res, ms))
 
 const TitleText = document.getElementById('Title')
 const BUTTON = document.getElementById('BUTTON')
