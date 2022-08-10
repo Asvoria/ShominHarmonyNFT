@@ -121,10 +121,10 @@ const runMetamask = () => {
           console.log(result)
           txlog = result
         })
-        console.log(txO)
         console.log(txlog)
         const decodedParameters = await web3ONE.eth.getTransactionReceipt(txlog).then(console.log)
-        console.log(decodedParameters)
+        console.log(decodedParameters[0].topics[3])
+        console.log(web3ONE.utils.hexToNumber(decodedParameters[0].topics[3]))
         buyBUTTONbONE.classList.add('hideclass')
         buyBUTTONbONE.classList.remove('is-visible')
         buyBUTTONbBNB.classList.add('hideclass')
