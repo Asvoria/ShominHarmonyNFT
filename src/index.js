@@ -71,12 +71,12 @@ const ContentArea = document.getElementById('ContentArea')
 
 const Web3 = require('web3')
 
-const web3ONE = new Web3('https://api.s0.ps.hmny.io')
-const web3BNB = new Web3('https://data-seed-prebsc-1-s1.binance.org:8545/')
-const HarmonyChainID = '1666900000'
-const BinanceChainID = '97'
-const contractAddsONE = '0xa6f1b130C69A4349a9Fc51bB36e01Ab2cD925EFB'
-const contractAddsBNB = '0x7044C20c5094697048791d4dDFf7CE56724e03Ff'
+const web3ONE = new Web3('https://api.harmony.one')
+const web3BNB = new Web3('https://bsc-dataseed.binance.org/')
+const HarmonyChainID = '1666600000'
+const BinanceChainID = '56'
+const contractAddsONE = '0xAa993f353aA3Dc670237e73b08533D0adA45Db5A'
+const contractAddsBNB = '0x54e0e3b3adC1FD0FAbCa8e97fd43CBE24eF2E206'
 const SHOMINcontractONE = new web3ONE.eth.Contract(SHOMIN_ABI, contractAddsONE)
 const SHOMINcontractBNB = new web3BNB.eth.Contract(SHOMIN_ABI, contractAddsBNB)
 

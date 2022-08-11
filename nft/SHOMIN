@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-contract SHOMIN is ERC721URIStorage {
+contract SSC is ERC721URIStorage {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
     address payable private deployWallet;
@@ -26,14 +26,16 @@ contract SHOMIN is ERC721URIStorage {
         return newItemId;
     }
 
-    function buyMembership(string memory newURI) public payable returns (uint256){
+    function totalIDs() public view returns (uint256) {
+        return _tokenIds.current();
+    }
+
+    function buyMembership(string memory newURI) public payable {
         require(msg.sender != address(0));
         mintNFT(msg.sender, newURI);
 
         uint256 etherUsed = msg.value;
         require(etherUsed > 0);
         payable(deployWallet).transfer(etherUsed);
-        uint256 newItemId = _tokenIds.current();
-        return newItemId;
     }
 }
