@@ -129,9 +129,10 @@ const runMetamask = () => {
         console.log(txlog)
         await sleep(600)
         let getRxLog = ''
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 30; i++) {
           console.log('waiting...')
           getRxLog = await web3ONE.eth.getTransactionReceipt(txlog)
+          AREAm.innerText += `.`
           await sleep(100)
           if (getRxLog) {
             console.log('rx not null...')
@@ -157,6 +158,7 @@ const runMetamask = () => {
     } catch (error) {
       console.error('error')
       console.error(error)
+      AREAm.innerText = `Network busy. Don't worry, check out your transaction hash and refresh this page.`
     }
   }
 
@@ -192,9 +194,10 @@ const runMetamask = () => {
         console.log(txlog)
         await sleep(600)
         let getRxLog = ''
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 20; i++) {
           console.log('waiting...')
           getRxLog = await web3BNB.eth.getTransactionReceipt(txlog)
+          AREAm.innerText += `.`
           await sleep(100)
           if (getRxLog) {
             console.log('rx not null...')
@@ -220,6 +223,7 @@ const runMetamask = () => {
     } catch (error) {
       console.error('error')
       console.error(error)
+      AREAm.innerText = `Network busy. Don't worry, check out your transaction hash and refresh this page.`
     }
   }
 
