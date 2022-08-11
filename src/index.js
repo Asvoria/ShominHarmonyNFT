@@ -84,7 +84,7 @@ const currentUrl = new URL(window.location.href)
 const forwarderOrigin =
   currentUrl.hostname === 'localhost' ? 'http://localhost:9010' : undefined
 
-const totalPriceONE = Number(100.0)
+const totalPriceONE = Number(200.0)
 const totalPriceBNB = Number(0.0068)
 
 const strURLONE = 'https://asvoria.github.io/Author/nft/SCCcard2022v1.json'
