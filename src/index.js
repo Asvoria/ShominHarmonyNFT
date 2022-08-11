@@ -212,7 +212,7 @@ const runMetamask = () => {
         buyBUTTONbBNB.classList.remove('is-visible')
         AREAm.classList.remove('Error')
         AREAm.classList.add('Success')
-        AREAm.innerText = `Thank You for your support!\nYou may add the NFT token to your Metamask Mobile Wallet with following informtion.\nContract Address: ${contractAddsONE}\nToken ID: ${idOnly}\nRefresh the page and connect to Metamask to view the secret contents!`
+        AREAm.innerText = `Thank You for your support!\nYou may add the NFT token to your Metamask Mobile Wallet with following informtion.\nContract Address: ${contractAddsBNB}\nToken ID: ${idOnly}\nRefresh the page and connect to Metamask to view the secret contents!`
       } else {
         AREAm.classList.add('Error')
         AREAm.innerText = `Your selected network on Metamask Wallet does not match! Please Select Binance Smart Chain Mainnet.`
