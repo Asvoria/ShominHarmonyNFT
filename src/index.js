@@ -77,31 +77,32 @@ const forwarderOrigin =
   currentUrl.hostname === 'localhost' ? 'http://localhost:9010' : undefined
 
 const runMetamask = () => {
+  let ChainSelect = ''
   const isMetaMaskInstalled = () => {
     const { ethereum } = window
     return Boolean(ethereum && ethereum.isMetaMask)
   }
   const onboarding = new MetaMaskOnboarding({ forwarderOrigin })
 
-  const onClickBuyX = async (cName, cID, cWeb3, cConABI, cPrice, cURL, cConAds) => {
+  const onClickBuyX = async () => {
     try {
       await ethereum.request({ method: 'eth_requestAccounts' })
       const detChainID = await ethereum.request({ method: 'net_version' })
       let txlog = ''
 
-      if (detChainID === cID) {
+      if (detChainID === ChainID[ChainSelect]) {
         const _accounts = await ethereum.request({
           method: 'eth_accounts',
         })
 
-        const totalToken = await cPrice * (10 ** 18)
-        const txHash = await cConABI.methods.buyMembership(cURL).encodeABI()
+        const totalToken = await ChainPrice[ChainSelect] * (10 ** 18)
+        const txHash = await ChainConABI[ChainSelect].methods.buyMembership(ChainStrURL[ChainSelect]).encodeABI()
         const txO = await ethereum.request({
           method: 'eth_sendTransaction',
           params: [{
-            to: cConAds,
+            to: ChainConAdr[ChainSelect],
             from: _accounts[0],
-            value: cWeb3.utils.toHex(totalToken),
+            value: ChainWeb3[ChainSelect].utils.toHex(totalToken),
             data: txHash,
           }],
         }).then((result) => {
@@ -116,7 +117,7 @@ const runMetamask = () => {
         let getRxLog = ''
         for (let i = 0; i < 30; i++) {
           console.log('Waiting...')
-          getRxLog = await cWeb3.eth.getTransactionReceipt(txlog)
+          getRxLog = await ChainWeb3[ChainSelect].eth.getTransactionReceipt(txlog)
           MsgArea.innerText += `.`
           await sleep(200)
           if (getRxLog) {
@@ -127,16 +128,16 @@ const runMetamask = () => {
         }
 
         console.log(getRxLog.logs[0].topics[3])
-        const idOnly = await cWeb3.utils.hexToNumber(getRxLog.logs[0].topics[3])
+        const idOnly = await ChainWeb3[ChainSelect].utils.hexToNumber(getRxLog.logs[0].topics[3])
         console.log(idOnly)
         buyBTN.classList.add('hideclass')
         buyBTN.classList.remove('is-visible')
         MsgArea.classList.remove('Error')
         MsgArea.classList.add('Success')
-        CntArea.innerText = `Thank You for your support!\nYou may add the NFT token to your Metamask Mobile Wallet with following informtion.\nContract Address: ${cConAds}\nToken ID: ${idOnly}\nRefresh the page and connect to Metamask to view the secret contents!`
+        CntArea.innerText = `Thank You for your support!\nYou may add the NFT token to your Metamask Mobile Wallet with following informtion.\nContract Address: ${ChainConAdr[ChainSelect]}\nToken ID: ${idOnly}\nRefresh the page and connect to Metamask to view the secret contents!`
       } else {
         MsgArea.classList.add('Error')
-        MsgArea.innerText = `Your selected network on Metamask Wallet does not match! Please Select ${cName}.`
+        MsgArea.innerText = `Your selected network on Metamask Wallet does not match! Please Select ${ChainName[ChainSelect]}.`
       }
     } catch (error) {
       console.error('error')
@@ -161,7 +162,6 @@ const runMetamask = () => {
   }
 
   const onClickConnect = async () => {
-    let ChainSelect = ''
     try {
       await ethereum.request({ method: 'eth_requestAccounts' })
       const _accounts = await ethereum.request({
