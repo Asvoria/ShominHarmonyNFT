@@ -54,18 +54,18 @@ const ChainConAdr = [
   '0x54e0e3b3adC1FD0FAbCa8e97fd43CBE24eF2E206',
   '0xf520dA05364af929e19866Bbd6c4fFAC2eca0EDa',
 ]
-const conAbiONE = new web3ONE.eth.Contract(SHOMIN_ABI, ChainConAdr[0])
-const conAbiBNB = new web3BNB.eth.Contract(SHOMIN_ABI, ChainConAdr[1])
-const conAbiCELO = new web3CELO.eth.Contract(SHOMIN_ABI, ChainConAdr[2])
+const conAbiONE = new web3ONE.eth.Contract(SSC_ABI, ChainConAdr[0])
+const conAbiBNB = new web3BNB.eth.Contract(SSC_ABI, ChainConAdr[1])
+const conAbiCELO = new web3CELO.eth.Contract(SSC_ABI, ChainConAdr[2])
 const ChainConABI = ['0', conAbiONE, conAbiBNB, conAbiCELO]
 
 const ChainName = ['ERROR', 'Harmony Shard 0 Mainnet', 'Binance Smart Chain', 'Celo Mainnet']
-const ChainShort = ['ERROR', 'HARMONY', 'BINANCE', "CELO"]
-const ChainSym = ['ERROR', 'ONE', 'BNB', "CELO"]
+const ChainShort = ['ERROR', 'HARMONY', 'BINANCE', 'CELO']
+const ChainSym = ['ERROR', 'ONE', 'BNB', 'CELO']
 const ChainID = ['0', '1666600000', '56', '42220']
 const ChainPrice = [Number(0), Number(200.0), Number(0.0068), Number(2)]
 const ChainStrURL = [
-  'ERROR', 
+  'ERROR',
   'https://asvoria.github.io/Author/nft/SCCcard2022v1.json',
   'https://asvoria.github.io/Author/nft/SCCcard2022v2.json',
   'https://asvoria.github.io/Author/nft/SCCcard2022v2.json',
@@ -161,6 +161,7 @@ const runMetamask = () => {
 
   const onClickConnect = async () => {
     try {
+      let ChainSelect = ''
       await ethereum.request({ method: 'eth_requestAccounts' })
       const _accounts = await ethereum.request({
         method: 'eth_accounts',
@@ -169,7 +170,6 @@ const runMetamask = () => {
       console.log(_accounts[0])
       console.log(ChainID)
       let ownNFTbalance = 0
-      let ChainSelect = ''
 
       if (ChainIDsel === ChainID[0]) {
         ChainSelect = Number(1)
@@ -187,7 +187,7 @@ const runMetamask = () => {
         MsgArea.innerText = `Unsupported network detected!\nPlease set Metamask Network to Harmony Shard 0 Mainnet, Binance Smart Chain Mainnet or Celo Mainnet.`
         TitleText.innerText = 'Please change to the supported Metamask network and then refresh the page.'
       } else {
-        ownNFTbalance = await CheckOwner (ChainName[ChainSelect], ChainShort[ChainSelect], ChainSym[ChainSelect], ChainConABI[ChainSelect], ChainPrice[ChainSelect])
+        ownNFTbalance = await CheckOwner(ChainName[ChainSelect], ChainShort[ChainSelect], ChainSym[ChainSelect], ChainConABI[ChainSelect], ChainPrice[ChainSelect])
       }
 
       if (ownNFTbalance > 0) {
@@ -207,7 +207,7 @@ const runMetamask = () => {
     }
 
     BTNlogin.onclick = onClickConnect
-    buyBTN.onclick = onClickBuyX (ChainName[ChainSelect], ChainID[ChainSelect], ChainWeb3[ChainSelect], ChainConABI[ChainSelect], ChainPrice[ChainSelect], ChainStrURL[ChainSelect], ChainConAdr[ChainSelect])
+    buyBTN.onclick = onClickBuyX(ChainName[ChainSelect], ChainID[ChainSelect], ChainWeb3[ChainSelect], ChainConABI[ChainSelect], ChainPrice[ChainSelect], ChainStrURL[ChainSelect], ChainConAdr[ChainSelect])
   }
 
   const onClickInstall = () => {
