@@ -149,12 +149,12 @@ const runMetamask = () => {
   const CheckOwner = async (chkName, chkShort, chkSym, chkConABI, chkPrice, acc) => {
     let OwnToken = ''
     try {
-      const BalanceInContract = await chkConABI.methods.balanceOf(acc).call()
+      const BalanceInContract = await ChainConABI[ChainSelect].methods.balanceOf(acc).call()
       if (BalanceInContract > 0) {
         OwnToken = BalanceInContract
       }
-      CntArea.innerHTML = `<div>Passes on ${chkName}: ${OwnToken}</div>`
-      buyBTNtext.innerHTML = `${chkShort}<br> ${chkPrice} ${chkSym}`
+      CntArea.innerHTML = `<div>Passes on ${ChainName[ChainSelect]}: ${OwnToken}</div>`
+      buyBTNtext.innerHTML = `${ChainShort[ChainSelect]}<br> ${ChainPrice[ChainSelect]} ${ChainSym[ChainSelect]}`
     } catch (error) {
       console.error(error)
     }
@@ -188,7 +188,7 @@ const runMetamask = () => {
         MsgArea.innerText = `Unsupported network detected!\nPlease set Metamask Network to Harmony Shard 0 Mainnet, Binance Smart Chain Mainnet or Celo Mainnet.`
         TitleText.innerText = 'Please change to the supported Metamask network and then refresh the page.'
       } else {
-        ownNFTbalance = await CheckOwner(ChainName[ChainSelect], ChainShort[ChainSelect], ChainSym[ChainSelect], ChainConABI[ChainSelect], ChainPrice[ChainSelect], _accounts[0])
+        ownNFTbalance = await CheckOwner(_accounts[0])
       }
 
       if (ownNFTbalance > 0) {
