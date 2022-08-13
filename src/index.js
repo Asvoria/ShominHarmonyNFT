@@ -185,10 +185,13 @@ const runMetamask = () => {
 
       if (ChainSelect === 0) {
         MsgArea.classList.add('Error')
-        MsgArea.innerText = `Unsupported network detected!\nPlease set Metamask Network to Harmony Shard 0 Mainnet, Binance Smart Chain Mainnet or Celo Mainnet.`
-        TitleText.innerText = 'Please change to the supported Metamask network and then refresh the page.'
+        MsgArea.innerText = `Unsupported network detected!\nPlease set Metamask Network to Harmony Shard 0 Mainnet, Binance Smart Chain Mainnet or Celo Mainnet, and then refresh the page.`
       } else {
         ownNFTbalance = await CheckOwner(_accounts[0])
+        BTNlogin.classList.add('hideclass')
+        BTNlogin.classList.remove('is-visible')
+        buyBTN.classList.add('is-visible')
+        buyBTN.classList.remove('hideclass')
       }
 
       if (ownNFTbalance > 0) {
@@ -202,10 +205,7 @@ const runMetamask = () => {
       }
       TitleText.classList.add('is-visible')
       TitleText.classList.remove('hideclass')
-      BTNlogin.classList.add('hideclass')
-      BTNlogin.classList.remove('is-visible')
-      buyBTN.classList.add('is-visible')
-      buyBTN.classList.remove('hideclass')
+
     } catch (error) {
       console.error('error')
       console.error(error)
