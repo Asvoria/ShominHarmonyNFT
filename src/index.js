@@ -85,10 +85,10 @@ const runMetamask = () => {
   const onClickBuyX = async (cName, cID, cWeb3, cConABI, cPrice, cURL, cConAds) => {
     try {
       await ethereum.request({ method: 'eth_requestAccounts' })
-      const ChainID = await ethereum.request({ method: 'net_version' })
+      const detChainID = await ethereum.request({ method: 'net_version' })
       let txlog = ''
 
-      if (ChainID === cID) {
+      if (detChainID === cID) {
         const _accounts = await ethereum.request({
           method: 'eth_accounts',
         })
