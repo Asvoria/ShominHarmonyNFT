@@ -146,7 +146,7 @@ const runMetamask = () => {
     }
   }
 
-  const CheckOwner = async (chkName, chkShort, chkSym, chkConABI, chkPrice, acc) => {
+  const CheckOwner = async (acc) => {
     let OwnToken = ''
     try {
       const BalanceInContract = await ChainConABI[ChainSelect].methods.balanceOf(acc).call()
