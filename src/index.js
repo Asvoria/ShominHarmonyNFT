@@ -113,7 +113,7 @@ const runMetamask = () => {
           console.log(error)
         })
         console.log(txO)
-        await sleep(600)
+        await sleep(800)
         let getRxLog = ''
         for (let i = 0; i < 30; i++) {
           console.log('Waiting...')
@@ -124,7 +124,7 @@ const runMetamask = () => {
             console.log('rx not null...')
             break
           }
-          await sleep(600)
+          await sleep(880)
         }
 
         console.log(getRxLog.logs[0].topics[3])
