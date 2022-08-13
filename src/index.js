@@ -160,8 +160,8 @@ const runMetamask = () => {
   }
 
   const onClickConnect = async () => {
+    let ChainSelect = ''
     try {
-      let ChainSelect = ''
       await ethereum.request({ method: 'eth_requestAccounts' })
       const _accounts = await ethereum.request({
         method: 'eth_accounts',
