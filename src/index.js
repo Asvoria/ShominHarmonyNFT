@@ -196,6 +196,8 @@ const runMetamask = () => {
 
       if (ownNFTbalance > 0) {
         console.log('Allow display of restricted posts.')
+        MsgArea.classList.add('Success')
+        MsgArea.classList.remove('Error')
         TitleText.innerText = 'Welcome Back!\nYou may still be able to purchase more passes.'
         MsgArea.innerText = 'Thank you for your support! You are truely an amazing supporter!'
         CntArea.innerHTML += '<object style="display: flex; width: 98%; height: 560px;" type="text/html" data="https://asvoria.github.io/Author/bundled/display.html"></object>'
