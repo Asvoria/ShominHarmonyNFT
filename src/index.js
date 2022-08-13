@@ -54,9 +54,9 @@ const ChainConAdr = [
   '0x54e0e3b3adC1FD0FAbCa8e97fd43CBE24eF2E206',
   '0xf520dA05364af929e19866Bbd6c4fFAC2eca0EDa',
 ]
-const conAbiONE = new web3ONE.eth.Contract(SSC_ABI, ChainConAdr[0])
-const conAbiBNB = new web3BNB.eth.Contract(SSC_ABI, ChainConAdr[1])
-const conAbiCELO = new web3CELO.eth.Contract(SSC_ABI, ChainConAdr[2])
+const conAbiONE = new web3ONE.eth.Contract(SSC_ABI, ChainConAdr[1])
+const conAbiBNB = new web3BNB.eth.Contract(SSC_ABI, ChainConAdr[2])
+const conAbiCELO = new web3CELO.eth.Contract(SSC_ABI, ChainConAdr[3])
 const ChainConABI = ['0', conAbiONE, conAbiBNB, conAbiCELO]
 
 const ChainName = ['ERROR', 'Harmony Shard 0 Mainnet', 'Binance Smart Chain', 'Celo Mainnet']
