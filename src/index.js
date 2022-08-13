@@ -169,14 +169,14 @@ const runMetamask = () => {
       })
       const ChainIDsel = await ethereum.request({ method: 'net_version' })
       console.log(_accounts[0])
-      console.log(ChainID)
+      console.log(ChainIDsel)
       let ownNFTbalance = 0
 
-      if (ChainIDsel === ChainID[0]) {
+      if (ChainIDsel === ChainID[1]) {
         ChainSelect = Number(1)
-      } else if (ChainIDsel === ChainID[1]) {
-        ChainSelect = Number(2)
       } else if (ChainIDsel === ChainID[2]) {
+        ChainSelect = Number(2)
+      } else if (ChainIDsel === ChainID[3]) {
         ChainSelect = Number(3)
       } else {
         ChainSelect = Number(0)
