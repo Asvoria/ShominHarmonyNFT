@@ -202,6 +202,10 @@ const runMetamask = () => {
       }
       TitleText.classList.add('is-visible')
       TitleText.classList.remove('hideclass')
+      BTNlogin.classList.add('hideclass')
+      BTNlogin.classList.remove('is-visible')
+      buyBTN.classList.add('is-visible')
+      buyBTN.classList.remove('hideclass')
     } catch (error) {
       console.error('error')
       console.error(error)
