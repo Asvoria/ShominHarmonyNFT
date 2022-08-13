@@ -212,7 +212,7 @@ const runMetamask = () => {
     }
 
     BTNlogin.onclick = onClickConnect
-    buyBTN.onclick = onClickBuyX(ChainName[ChainSelect], ChainID[ChainSelect], ChainWeb3[ChainSelect], ChainConABI[ChainSelect], ChainPrice[ChainSelect], ChainStrURL[ChainSelect], ChainConAdr[ChainSelect])
+    buyBTN.onclick = onClickBuyX
   }
 
   const onClickInstall = () => {
