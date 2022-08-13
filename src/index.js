@@ -36,6 +36,7 @@ const sleep = (ms) => new Promise((res) => setTimeout(res, ms))
 
 const TitleText = document.getElementById('Title')
 const BTNlogin = document.getElementById('BTNlogin')
+const BTNloginText = document.getElementById('BTNloginText')
 const buyBTN = document.getElementById('buyBTN')
 const buyBTNtext = document.getElementById('buyBTNtext')
 const MsgArea = document.getElementById('MsgArea')
@@ -211,7 +212,7 @@ const runMetamask = () => {
   }
 
   const onClickInstall = () => {
-    BTNlogin.innerText = 'Onboarding in progress'
+    BTNloginText.innerText = 'Onboarding in progress'
     onboarding.startOnboarding()
   }
 
@@ -221,10 +222,10 @@ const runMetamask = () => {
     BTNlogin.classList.add('is-visible')
     BTNlogin.classList.remove('hideclass')
     if (isMetaMaskInstalled()) {
-      BTNlogin.innerText = 'LOGIN with METAMASK!'
+      BTNloginText.innerText = 'LOGIN with METAMASK!'
       BTNlogin.onclick = onClickConnect
     } else {
-      BTNlogin.innerText = 'INSTALL METAMASK!'
+      BTNloginText.innerText = 'INSTALL METAMASK!'
       BTNlogin.onclick = onClickInstall
     }
   }
