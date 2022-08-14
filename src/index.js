@@ -67,9 +67,9 @@ const ChainID = ['0', '1666900000', '97', '44787']
 const ChainPrice = [Number(0), Number(200.0), Number(0.0068), Number(2)]
 const ChainStrURL = [
   'ERROR',
-  'https://asvoria.github.io/Author/nft/SCCcard2022v1.json',
-  'https://asvoria.github.io/Author/nft/SCCcard2022v2.json',
-  'https://asvoria.github.io/Author/nft/SCCcard2022v3.json',
+  'https://asvoria.github.io/ShominHarmonyNFT/nft/SCCcard2022v1.json',
+  'https://asvoria.github.io/ShominHarmonyNFT/nft/SCCcard2022v2.json',
+  'https://asvoria.github.io/ShominHarmonyNFT/nft/SCCcard2022v3.json',
 ]
 
 const currentUrl = new URL(window.location.href)
