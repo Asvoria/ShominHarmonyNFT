@@ -67,9 +67,9 @@ const ChainID = ['0', '1666900000', '97', '44787']
 const ChainPrice = [Number(0), Number(200.0), Number(0.0068), Number(2)]
 const ChainStrURL = [
   'ERROR',
-  'https://asvoria.github.io/ShominHarmonyNFT/nft/SCCcard2022v1.json',
-  'https://asvoria.github.io/ShominHarmonyNFT/nft/SCCcard2022v2.json',
-  'https://asvoria.github.io/ShominHarmonyNFT/nft/SCCcard2022v3.json',
+  'https://asvoria.github.io/ShominHarmonyNFT/SCCcard2022v1.json',
+  'https://asvoria.github.io/ShominHarmonyNFT/SCCcard2022v2.json',
+  'https://asvoria.github.io/ShominHarmonyNFT/SCCcard2022v3.json',
 ]
 
 const currentUrl = new URL(window.location.href)
@@ -200,7 +200,7 @@ const runMetamask = () => {
         MsgArea.classList.remove('Error')
         TitleText.innerText = 'Welcome Back!\nYou may still be able to purchase more passes.'
         MsgArea.innerText = 'Thank you for your support! You are truely an amazing supporter!'
-        CntArea.innerHTML += '<object style="display: flex; width: 98%; height: 560px;" type="image/svg+xml" data="https://asvoria.github.io/ShominHarmonyNFT/nft/Grumpy-Cat-by-Rones.svg"></object>'
+        CntArea.innerHTML += '<object style="display: flex; width: 98%; height: 560px;" type="image/svg+xml" data="https://asvoria.github.io/ShominHarmonyNFT/Grumpy-Cat-by-Rones.svg"></object>'
       } else {
         console.log('Allow display of restricted posts.')
         TitleText.innerText = 'Welcome to Shomin\'s Secret Corner!\nClick the following buttons to buy the Secret Corner Pass:'
