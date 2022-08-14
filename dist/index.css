@@ -31,11 +31,19 @@ header {
 }
 
 .Error {
+  font-family: "Source Sans Pro", sans-serif;
   font-size: larger;
   color: red;
 }
 
+.info {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.25em;
+  color: rgb(69, 44, 0);
+}
+
 .Success {
+  font-family: "Source Sans Pro", sans-serif;
   color: rgb(236, 229, 215);
 }
 
