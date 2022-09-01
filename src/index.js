@@ -52,7 +52,7 @@ const ChainWeb3 = ['0', web3ONE, web3BNB, web3CELO]
 const ChainConAdr = [
   '0',
   '0xa6f1b130C69A4349a9Fc51bB36e01Ab2cD925EFB',
-  '0x7044C20c5094697048791d4dDFf7CE56724e03Ff',
+  '0x5d629Db9d9e2C990aD9F0a0acB421a8ac4e9d3F3',
   '0x2E5adC0D61bd932C215bc7850b80Ff1602121db7',
 ]
 const conAbiONE = new web3ONE.eth.Contract(SSC_ABI, ChainConAdr[1])
