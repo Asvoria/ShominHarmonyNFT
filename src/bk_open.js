@@ -200,7 +200,7 @@ const runMetamask = () => {
         MsgArea.classList.remove('Error')
         TitleText.innerText = 'Welcome Back!\nYou may still be able to purchase more passes.'
         MsgArea.innerText = 'Thank you for your support! You are truely an amazing supporter!'
-        CntArea.innerHTML += `<img style="display: flex; width: 95%;" src="https://asvoria.github.io/ShominHarmonyNFT/Grumpy-Cat-by-Rones.svg" alt="My Happy SVG" />`
+        CntArea.innerHTML += '<img style="display: flex; width: 95%;" src="https://asvoria.github.io/ShominHarmonyNFT/Grumpy-Cat-by-Rones.svg" alt="My Happy SVG" />'
       } else {
         console.log('Allow display of restricted posts.')
         TitleText.innerText = 'Welcome to Shomin\'s Secret Corner!\nClick the following buttons to buy the Secret Corner Pass:'
