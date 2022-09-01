@@ -134,7 +134,7 @@ const runMetamask = () => {
         buyBTN.classList.remove('is-visible')
         MsgArea.classList.remove('Error')
         MsgArea.classList.add('Success')
-        CntArea.innerText = `Thank You for your support!\nYou may add the NFT token to your Metamask Mobile Wallet with following informtion.\nContract Address: ${ChainConAdr[ChainSelect]}\nToken ID: ${idOnly}\nRefresh the page and connect to Metamask to view the secret contents!`
+        MsgArea.innerText = `Thank You for your support!\nYou may add the NFT token to your Metamask Mobile Wallet with following informtion.\nContract Address: ${ChainConAdr[ChainSelect]}\nToken ID: ${idOnly}\nRefresh the page and connect to Metamask to view the secret contents!`
       } else {
         MsgArea.classList.add('Error')
         MsgArea.innerText = `Your selected network on Metamask Wallet does not match! Please Select ${ChainName[ChainSelect]}.`
