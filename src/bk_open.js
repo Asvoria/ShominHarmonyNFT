@@ -44,32 +44,32 @@ const CntArea = document.getElementById('CntArea')
 
 const Web3 = require('web3')
 
-const web3ONE = new Web3('https://api.harmony.one')
-const web3BNB = new Web3('https://bsc-dataseed.binance.org/')
-const web3CELO = new Web3('https://forno.celo.org')
+const web3ONE = new Web3('https://api.s0.ps.hmny.io')
+const web3BNB = new Web3('https://data-seed-prebsc-1-s1.binance.org:8545/')
+const web3CELO = new Web3('https://alfajores-forno.celo-testnet.org')
 const ChainWeb3 = ['0', web3ONE, web3BNB, web3CELO]
 
 const ChainConAdr = [
   '0',
-  '0xAa993f353aA3Dc670237e73b08533D0adA45Db5A',
-  '0xE91b96eB519Fc913e2734a90848322a048724f38',
-  '0xf520dA05364af929e19866Bbd6c4fFAC2eca0EDa',
+  '0xa6f1b130C69A4349a9Fc51bB36e01Ab2cD925EFB',
+  '0x5d629Db9d9e2C990aD9F0a0acB421a8ac4e9d3F3',
+  '0x2E5adC0D61bd932C215bc7850b80Ff1602121db7',
 ]
 const conAbiONE = new web3ONE.eth.Contract(SSC_ABI, ChainConAdr[1])
 const conAbiBNB = new web3BNB.eth.Contract(SSC_ABI, ChainConAdr[2])
 const conAbiCELO = new web3CELO.eth.Contract(SSC_ABI, ChainConAdr[3])
 const ChainConABI = ['0', conAbiONE, conAbiBNB, conAbiCELO]
 
-const ChainName = ['ERROR', 'Harmony Shard 0 Mainnet', 'Binance Smart Chain', 'Celo Mainnet']
-const ChainShort = ['ERROR', 'HARMONY', 'BINANCE', 'CELO']
+const ChainName = ['ERROR', 'Harmony Shard 0 DevNet', 'Binance Smart Chain Testnet', 'Celo Testnet']
+const ChainShort = ['ERROR', 'HARMONYx', 'BINANCEx', 'CELOx']
 const ChainSym = ['ERROR', 'ONE', 'BNB', 'CELO']
-const ChainID = ['0', '1666600000', '56', '42220']
+const ChainID = ['0', '1666900000', '97', '44787']
 const ChainPrice = [Number(0), Number(200.0), Number(0.0068), Number(2)]
 const ChainStrURL = [
   'ERROR',
-  'https://asvoria.github.io/Author/nft/SCCcard2022v1.json',
-  'https://asvoria.github.io/Author/nft/SCCcard2022v2.json',
-  'https://asvoria.github.io/Author/nft/SCCcard2022v3.json',
+  'https://asvoria.github.io/ShominHarmonyNFT/SCCcard2022v1.json',
+  'https://asvoria.github.io/ShominHarmonyNFT/SCCcard2022v2.json',
+  'https://asvoria.github.io/ShominHarmonyNFT/SCCcard2022v3.json',
 ]
 
 const currentUrl = new URL(window.location.href)
@@ -200,7 +200,7 @@ const runMetamask = () => {
         MsgArea.classList.remove('Error')
         TitleText.innerText = 'Welcome Back!\nYou may still be able to purchase more passes.'
         MsgArea.innerText = 'Thank you for your support! You are truely an amazing supporter!'
-        CntArea.innerHTML += '<object style=\"display: flex; width: 98%; height: 560px;\" type=\"text/html\" data=\"https://asvoria.github.io/Author/bundled/display.html\"></object>'
+        CntArea.innerHTML += '<img style="display: flex; width: 95%;" src="https://asvoria.github.io/ShominHarmonyNFT/Grumpy-Cat-by-Rones.svg" alt="My Happy SVG" />'
       } else {
         console.log('Allow display of restricted posts.')
         TitleText.innerText = 'Welcome to Shomin\'s Secret Corner!\nClick the following buttons to buy the Secret Corner Pass:'
