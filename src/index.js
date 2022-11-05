@@ -43,30 +43,31 @@ const MsgArea = document.getElementById('MsgArea')
 const CntArea = document.getElementById('CntArea')
 
 const Web3 = require('web3')
-
+const web3ETH = new Web3('https://goerli.prylabs.net');
 const web3ONE = new Web3('https://api.harmony.one')
 const web3BNB = new Web3('https://bsc-dataseed.binance.org/')
 const web3CELO = new Web3('https://forno.celo.org')
-const ChainWeb3 = ['0', web3ONE, web3BNB, web3CELO]
+const ChainWeb3 = [web3ETH, web3ONE, web3BNB, web3CELO]
 
 const ChainConAdr = [
-  '0',
+  '0x2E5adC0D61bd932C215bc7850b80Ff1602121db7',
   '0xAa993f353aA3Dc670237e73b08533D0adA45Db5A',
   '0xE91b96eB519Fc913e2734a90848322a048724f38',
   '0xf520dA05364af929e19866Bbd6c4fFAC2eca0EDa',
 ]
+const conAbiETH = new web3ETH.eth.Contract(SSC_ABI, ChainConAdr[0])
 const conAbiONE = new web3ONE.eth.Contract(SSC_ABI, ChainConAdr[1])
 const conAbiBNB = new web3BNB.eth.Contract(SSC_ABI, ChainConAdr[2])
 const conAbiCELO = new web3CELO.eth.Contract(SSC_ABI, ChainConAdr[3])
-const ChainConABI = ['0', conAbiONE, conAbiBNB, conAbiCELO]
+const ChainConABI = [conAbiETH, conAbiONE, conAbiBNB, conAbiCELO]
 
-const ChainName = ['ERROR', 'Harmony Shard 0 Mainnet', 'Binance Smart Chain', 'Celo Mainnet']
-const ChainShort = ['ERROR', 'HARMONY', 'BINANCE', 'CELO']
-const ChainSym = ['ERROR', 'ONE', 'BNB', 'CELO']
-const ChainID = ['0', '1666600000', '56', '42220']
-const ChainPrice = [Number(0), Number(200.0), Number(0.0068), Number(2)]
+const ChainName = ['Ethereum', 'Harmony Shard 0 Mainnet', 'Binance Smart Chain', 'Celo Mainnet']
+const ChainShort = ['ETH', 'HARMONY', 'BINANCE', 'CELO']
+const ChainSym = ['ETH', 'ONE', 'BNB', 'CELO']
+const ChainID = ['5', '1666600000', '56', '42220']
+const ChainPrice = [Number(0.0001), Number(200.0), Number(0.0068), Number(2)]
 const ChainStrURL = [
-  'ERROR',
+  'https://asvoria.github.io/Author/nft/SCCcard2022v1.json',
   'https://asvoria.github.io/Author/nft/SCCcard2022v1.json',
   'https://asvoria.github.io/Author/nft/SCCcard2022v2.json',
   'https://asvoria.github.io/Author/nft/SCCcard2022v3.json',
@@ -172,18 +173,20 @@ const runMetamask = () => {
       console.log(ChainIDsel)
       let ownNFTbalance = 0
 
-      if (ChainIDsel === ChainID[1]) {
+      if (ChainIDsel === ChainID[0]) {
+        ChainSelect = Number(0)
+      } else if (ChainIDsel === ChainID[1]) {
         ChainSelect = Number(1)
       } else if (ChainIDsel === ChainID[2]) {
         ChainSelect = Number(2)
       } else if (ChainIDsel === ChainID[3]) {
         ChainSelect = Number(3)
       } else {
-        ChainSelect = Number(0)
+        ChainSelect = Number(5)
         console.log('Wrong Chain!')
       }
 
-      if (ChainSelect === 0) {
+      if (ChainSelect === 5) {
         MsgArea.classList.add('Error')
         MsgArea.innerText = `Unsupported network detected!\nPlease set Metamask Network to Harmony Shard 0 Mainnet, Binance Smart Chain Mainnet or Celo Mainnet, and then refresh the page.`
       } else {
