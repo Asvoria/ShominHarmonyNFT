@@ -43,7 +43,8 @@ const MsgArea = document.getElementById('MsgArea')
 const CntArea = document.getElementById('CntArea')
 
 const Web3 = require('web3')
-const web3ETH = new Web3('https://goerli.prylabs.net');
+
+const web3ETH = new Web3('https://goerli.prylabs.net')
 const web3ONE = new Web3('https://api.harmony.one')
 const web3BNB = new Web3('https://bsc-dataseed.binance.org/')
 const web3CELO = new Web3('https://forno.celo.org')
